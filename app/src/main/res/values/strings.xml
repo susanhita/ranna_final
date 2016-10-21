@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">রান্নার খাতা </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_create_recipe">CreateRecipe</string>
+    <string name="title_activity_check_ingredients">CheckIngredients</string>
+
+
+
+    <string name="you_added">আপনি নিম্নলিখিত উপাদানগুলো যুক্ত করেছেন :-"</string>
+    <string name="add_more">আরো উপাদান যোগ করুন</string>
+    <string name="add">যোগ করুন</string>
+    <string name="remind">ভুলবেন না</string>
+    <string name="grocery">বাজারের তালিকা</string>
+    <string name="confirm">সময় নিশ্চিত করুন</string>
+    <string name="rec_name">রান্নার নাম</string>
+    <string name="edit">আপনি নিচের উপাদানগুলো পরিমাণ বদলাতে পারেন| \n অবশ্য রান্নাটি সম্পূর্ণভাবে পেস্ট করলে \'সব পরিষ্কার\' বাটন ক্লিক করুন</string>
+    <string name="next">পরের পৃষ্ঠা</string>
+    <string name="delete">আপনি কি নিশ্চিত এটি মুছে ফেলতে চান?</string>
+    <string name="yes">হ্যাঁ</string>
+    <string name="no">না</string>
+    <string name="remind_you">নিজেকে মনে করিয়ে দিন বাজারে যেতে হবে</string>
+    <string name="create">নতুন বাজারের তালিকা তৈরি করুন</string>
+    <string name="view">বর্তমান বাজারের তালিকাটি দেখুন</string>
+    <string name="note">*নতুন তালিকা বিদ্যমান তালিকাটিকে সরাবে: -</string>
+    <string name="no_list">এখন কোনো তালিকা নেই</string>
+    <string name="nothing"> নির্বাচিত উপাদানের সঙ্গে কোন রেসিপি পাওয়া যায়নি|</string>
+    <string name="all_check">সমস্ত উপকরণ সিলেক্ট করা হয়েছে</string>
+    <string name="add_new">নতুন উপাদান যোগ করুন</string>
+    <string name="choose">এই রান্নার জন্য কি কি উপাদান দরকার</string>
+    <string name="select_avail">বাড়িতে কি কি উপাদান প্রস্তুত আছে?</string>
+    <string name="possible">সম্ভাব্য রেসিপি</string>
+    <string name="paste">পেস্ট</string>
+    <string name="type"> এখানে রান্নাপ্রণালী টাইপ  অথবা পেস্ট করুন</string>
+    <string name="add_pic">ফটো লাগান</string>
+    <string name="save">রেসিপেটি সংরক্ষণ করুন</string>
+    <string name="create_rec">নতুন রেসিপি লিখুন </string>
+    <string name="view_rec">আপনার রেসিপি খাতা  দেখুন</string>
+    <string name="random">কি বানাই, কি বানাই?</string>
+    <string name="delete_rec">কোনো রেসিপি বাদ দিতে চান?</string>
+    <string name="suggest">আজ কি বানাবেন ?</string>
+    <string name="clear">সব পরিষ্কার করে দাও </string>
+    <string name="cup">  "  কাপ"</string>
+    <string name="spoon">"  চামচ"</string>
+    <string name="gram">"  গ্রাম"</string>
+    <string name="piece">"  টুকরো"</string>
+    <string name="samanno">"  সামান্য"</string>
+    <string name="one">  "  ১"</string>
+    <string name="two">  "  ২"</string>
+    <string name="three">  "  ৩"</string>
+    <string name="four">  "  ৪"</string>
+    <string name="five">  "  ৫"</string>
+
+
+
+    <string name="banner_home_footer1">ca-app-pub-2155626911251067/8824273832</string>
+    <string name="banner_home_footer2">ca-app-pub-2155626911251067/2352264631</string>
+    <string name="banner_home_footer3">ca-app-pub-2155626911251067/3146170233</string>
+
+
+</resources>

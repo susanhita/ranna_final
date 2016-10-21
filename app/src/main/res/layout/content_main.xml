@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollView6"
+    android:orientation="vertical"
+    android:background="@drawable/back"
+    tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:layout_gravity="center_vertical"
+    tools:showIn="@layout/activity_main" tools:context=".MainActivity">
+
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/create"
+        android:layout_marginTop="25dp"
+        android:text="@string/create_rec"
+        android:textSize="10pt"
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:onClick="create_recipe"
+         />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/view"
+        android:layout_marginTop="12dp"
+        android:text="@string/view_rec"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:onClick="view_recipe"/>
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/random"
+        android:layout_marginTop="12dp"
+        android:text="@string/random"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:onClick="random_receipe"
+
+         />
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/delete"
+        android:layout_marginTop="12dp"
+        android:text="@string/delete_rec"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:onClick="delete_receipe"
+
+        />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/suggest"
+        android:layout_marginTop="12dp"
+        android:text="@string/suggest"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+       android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="suggest"
+        android:background="@drawable/buttonshape"
+
+        />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/grocery"
+        android:layout_marginTop="12dp"
+        android:text="@string/grocery"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="grocery"
+        android:background="@drawable/buttonshape"
+
+        />
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
+</ScrollView>

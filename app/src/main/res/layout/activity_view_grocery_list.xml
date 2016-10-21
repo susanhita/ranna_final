@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+
+    tools:context="com.habijabi.ranna.ViewGroceryList">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/grocery"
+        android:id="@+id/textViewlistv"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_below="@+id/textViewlistv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context=".ViewGroceryList"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/scrollViewVG">
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/groc_listv"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="@string/no_list" />
+
+</ScrollView>
+
+
+</RelativeLayout>

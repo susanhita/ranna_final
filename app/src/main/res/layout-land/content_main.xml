@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+
+    android:id="@+id/scrollView6"
+    android:orientation="vertical"
+    android:background="@drawable/back"
+    tools:context=".MainActivity">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:orientation="horizontal">
+
+<View
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    />
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/create"
+        android:text="@string/create_rec"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:onClick="create_recipe"
+         />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/view"
+        android:layout_marginTop="20dp"
+        android:text="@string/view_rec"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:onClick="view_recipe"/>
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/random"
+        android:layout_marginTop="20dp"
+        android:text="@string/random"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:onClick="random_receipe"
+
+         />
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/delete"
+        android:layout_marginTop="20dp"
+        android:text="@string/delete_rec"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:onClick="delete_receipe"
+
+        />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/suggest"
+        android:layout_marginTop="20dp"
+        android:text="@string/suggest"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+       android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="suggest"
+        android:background="@drawable/buttonshape"
+
+        />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/grocery"
+        android:layout_marginTop="20dp"
+        android:text="@string/grocery"
+        android:textSize="10pt"
+
+        android:textColor="#280d0d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="grocery"
+        android:background="@drawable/buttonshape"
+
+        />
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    </LinearLayout>
+</ScrollView>

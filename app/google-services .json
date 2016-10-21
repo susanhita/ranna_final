@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "447085344165",
+    "firebase_url": "https://rannar-khata.firebaseio.com",
+    "project_id": "rannar-khata",
+    "storage_bucket": "rannar-khata.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447085344165:android:90e368fe66b28750",
+        "android_client_info": {
+          "package_name": "com.habijabi.ranna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447085344165-3v263muk76kjgfspf10ug85056u6k8jb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV9P238sySV0ucGvJZR3O3Qd74vZEfCrI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
