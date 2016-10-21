@@ -45,6 +45,7 @@ public class RecipeActivity extends Activity {
     {
         getMenuInflater().inflate(R.menu.menu_main,menu);
         MenuItem menuItem=menu.findItem(R.id.action_share);
+        menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         shareActionProvider =(ShareActionProvider)menuItem.getActionProvider();
         setIntent(name+desc);
         return super.onCreateOptionsMenu(menu);
