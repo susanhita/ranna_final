@@ -14,16 +14,21 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ShareActionProvider;
 
 public class RecipeActivity extends Activity {
     public static final String EXTRA_RECIPENO = "drinkNo";
+    public static  String name="";
+    public static  String desc="";
     CountDownTimer cTimer = null;
-
+    private  ShareActionProvider shareActionProvider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,23 @@ public class RecipeActivity extends Activity {
         int drinkNo = (Integer) getIntent().getExtras().get(EXTRA_RECIPENO);
         new UpdateRecipeClass().execute(drinkNo);
 
+    }
+@Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        MenuItem menuItem=menu.findItem(R.id.action_share);
+        shareActionProvider =(ShareActionProvider)menuItem.getActionProvider();
+        setIntent(name+desc);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void  setIntent(String text)
+    {
+        Intent intent=new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT,text);
+        shareActionProvider.setShareIntent(intent);
     }
 
     @Override
@@ -111,7 +133,7 @@ public class RecipeActivity extends Activity {
 
 
 private class UpdateRecipeClass extends AsyncTask<Integer,Void,Boolean> {
-        String desctext,nametext,resourceid;
+        public String desctext,nametext,resourceid;
         protected void onPreExecute(){}
         protected Boolean doInBackground(Integer...drinks) {
             int drinkNo=drinks[0];
@@ -132,6 +154,10 @@ private class UpdateRecipeClass extends AsyncTask<Integer,Void,Boolean> {
             catch (SQLiteException e) {
                 return false;
             }
+
+
+
+
         }
         protected void onPostExecute(Boolean success){
             if (!success){
@@ -155,8 +181,11 @@ private class UpdateRecipeClass extends AsyncTask<Integer,Void,Boolean> {
                 photo.setImageURI(Uri.parse(resourceid));
                 photo.setContentDescription(nametext);
             }
+            RecipeActivity.name=nametext+"\n";
+            RecipeActivity.desc=desctext;
 
         }
+
     }
 
 
