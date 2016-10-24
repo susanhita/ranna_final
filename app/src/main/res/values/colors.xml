@@ -7,5 +7,6 @@
     <color name="outerframe">#3d150c</color>
     <color name="innerframe">#0a0400</color>
 
-
+    <drawable name="nothing">#ffffff</drawable>
+    <drawable name="selected">#9EC136</drawable>
 </resources>

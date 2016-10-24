@@ -20,7 +20,7 @@ public class CreateRecipe1 extends Activity {
         columns = intent.getStringExtra("Tot_col");
         values = intent.getStringExtra("Tot_val");
         EditText editText = (EditText) findViewById(R.id.ingredients);
-        editText.setText("উপকরণ:-" + columns.replaceAll(",", "\n"));
+        editText.setText("উপকরণ:-" + columns.replaceAll(",", "\n").replaceAll("_", " "));
         ActionBar actionBar = getActionBar();
         actionBar.setTitle(getString(R.string.create_rec));
         actionBar.setDisplayHomeAsUpEnabled(false);

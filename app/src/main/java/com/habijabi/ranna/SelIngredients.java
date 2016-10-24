@@ -10,34 +10,41 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class SelIngredients extends Activity {
+public class SelIngredients extends Activity  {
     public static String[] ingredient = new String[100];
     public static int i,j;
+    public static   int flag;
     public static String Tot_col,Tot_val;
     public static String[] ingtext=new String[100];
+    String groc_list="";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActionBar actionBar=getActionBar();
         actionBar.setTitle(getString(R.string.choose));
         actionBar.setDisplayShowHomeEnabled(true);
-
+        flag=0;
         Tot_col="";
         Tot_val="";
         setContentView(R.layout.activity_sel_ingredients);
         if (savedInstanceState != null) {
-             i=savedInstanceState.getInt("i");
+            i=savedInstanceState.getInt("i");
         }
         if (Grocery.grocery==true||MainActivity.add_grocery==true) {
             TextView choose = (TextView) findViewById(R.id.choose_text);
-            choose.setText("কি কি উপাদান কিনতে হবে");
+            choose.setText("?? ?? ?????? ????? ???");
             actionBar.setDisplayShowHomeEnabled(true);
         }
         new displayCheckboxes().execute();
@@ -80,7 +87,8 @@ public class SelIngredients extends Activity {
             }
         }
 
-        protected void onPostExecute(Boolean success) {
+        public void onPostExecute(Boolean success) {
+            int pos;
             if (j > 5) {
                 //  Button add_ingredient=(Button)findViewById(R.id.add_ingredient);
 
@@ -90,34 +98,68 @@ public class SelIngredients extends Activity {
                 choose.setVisibility(View.VISIBLE);
 
             }
-            LinearLayout layout = (LinearLayout) findViewById(R.id.layout_ingredient);
+            Integer[] hh=new Integer[j-5];
+            String[] ingtext1=new String[j-5];
+            for (int i=0,k = 5; k < j; k++) {
+                ingtext1[i]=ingtext[k].replaceAll("_", " ");
+                hh[i]=R.drawable.test;
+                i++;
+            }
 
-            for (int k = 5; k < j; k++) {
-                CheckBox chkTeamName = new CheckBox(SelIngredients.this);
-                chkTeamName.setId(k);
-                chkTeamName.setText(ingtext[k].replaceAll("_", " "));
-                chkTeamName.setTextSize(18);
-                layout.addView(chkTeamName);
+            ListView listView=(ListView)findViewById(R.id.listsel);
+
+            CustomAdapter listAdapter=new CustomAdapter(SelIngredients.this,ingtext1,hh);
+            listView.setAdapter(listAdapter);
+            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+            AdapterView.OnItemClickListener onItemClickListener=new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> listView, View view, int position, long id) {
+
+                }
+            };
+            listView.setOnItemClickListener(onItemClickListener);
+
+        }
+
+    }
+
+
+
+    public void addIngredient(View view){
+        if (Grocery.grocery==true)
+            MainActivity.add_grocery=true;
+        Intent intent=new Intent(this,AddIngredients.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+
+
+
+    public void insert_Ingredients(View view) {
+        ListView listView = (ListView) findViewById(R.id.listsel);
+
+
+
+        SparseBooleanArray checked = listView.getCheckedItemPositions();
+        for (int k = 0; k < j-5; k++){
+            if (checked.get(k)) {
+                flag = 1;
+                groc_list = groc_list.concat(ingtext[k+5] + "\n");
+                Tot_col = Tot_col.concat("," + ingtext[k+5]);
+                Tot_val = Tot_val.concat(",'YES'");
+
+
+
+
             }
         }
 
-   }
 
 
 
-   public void addIngredient(View view){
-       if (Grocery.grocery==true)
-           MainActivity.add_grocery=true;
-        Intent intent=new Intent(this,AddIngredients.class);
-        startActivity(intent);
-       finish();
-   }
-
-
-   public void insert_Ingredients(View view) {
-       int flag=0;
-       String list="";
-        for (int k = 5; k <  j; k++) {
+       /* for (int k = 5; k <  j; k++) {
             CheckBox chkTeamName = (CheckBox) findViewById(k);
             if (chkTeamName.isChecked()) {
                 flag=1;
@@ -125,35 +167,36 @@ public class SelIngredients extends Activity {
                 Tot_col = Tot_col.concat(","+ingtext[k]);
                 Tot_val= Tot_val.concat(",'YES'");
             }
+        }*/
+
+        if (flag==1) {
+            if (Grocery.grocery==true||MainActivity.add_grocery==true) {
+                Intent intent = new Intent(this, CreateGroceryList.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("list", groc_list);
+                startActivity(intent);
+                Grocery.grocery=false;
+                MainActivity.add_grocery=false;
+                finish();
+
+            }
+
+            else {
+                Intent intent = new Intent(this, CreateRecipe1.class);
+                intent.putExtra("Tot_col", Tot_col);
+                intent.putExtra("Tot_val", Tot_val);
+                startActivity(intent);
+                finish();
+            }
         }
-       if (flag==1) {
-           if (Grocery.grocery==true||MainActivity.add_grocery==true) {
-               Intent intent = new Intent(this, CreateGroceryList.class);
-               intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-               intent.putExtra("list", list);
-               startActivity(intent);
-               Grocery.grocery=false;
-               MainActivity.add_grocery=false;
-               finish();
 
-           }
-
-           else {
-               Intent intent = new Intent(this, CreateRecipe1.class);
-               intent.putExtra("Tot_col", Tot_col);
-               intent.putExtra("Tot_val", Tot_val);
-               startActivity(intent);
-               finish();
-           }
-       }
-
-       else{
-            Toast toast=Toast.makeText(this,"প্রথমে উপাদান সিলেক্ট করুন",Toast.LENGTH_SHORT);
+        else{
+            Toast toast=Toast.makeText(this,"?????? ?????? ??????? ????",Toast.LENGTH_SHORT);
             toast.show();
         }
 
 
-   }
+    }
 
 
 

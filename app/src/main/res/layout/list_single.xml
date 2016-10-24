@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/list_item_selector"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TableRow>
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <CheckBox
+            android:id="@+id/chktxt"
+            android:clickable="false"
+            android:background="@drawable/list_item_selector"
+            android:singleLine="true"
+            />
+
+    </TableRow>
+</TableLayout>
