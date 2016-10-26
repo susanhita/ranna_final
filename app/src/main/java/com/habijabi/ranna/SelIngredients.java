@@ -99,8 +99,9 @@ public class SelIngredients extends Activity  {
 
             }
             Integer[] hh=new Integer[j-5];
-            String[] ingtext1=new String[j-5];
+            String[] ingtext1=new String[j-5-7];
             for (int i=0,k = 5; k < j; k++) {
+                if (!(k>57 && k<66))
                 ingtext1[i]=ingtext[k].replaceAll("_", " ");
                 hh[i]=R.drawable.test;
                 i++;
@@ -143,11 +144,15 @@ public class SelIngredients extends Activity  {
 
 
         SparseBooleanArray checked = listView.getCheckedItemPositions();
-        for (int k = 0; k < j-5; k++){
+        for (int k = 0; k <listView.getCount(); k++){
             if (checked.get(k)) {
                 flag = 1;
-                groc_list = groc_list.concat(ingtext[k+5] + "\n");
-                Tot_col = Tot_col.concat("," + ingtext[k+5]);
+               // groc_list = groc_list.concat(ingtext[k+5] + "\n");
+              //  Tot_col = Tot_col.concat("," + ingtext[k+5]);
+                String str=listView.getItemAtPosition(k).toString().replaceAll(" ","_");
+                groc_list = groc_list.concat(str + "\n");
+                Tot_col = Tot_col.concat("," + str);
+
                 Tot_val = Tot_val.concat(",'YES'");
 
 

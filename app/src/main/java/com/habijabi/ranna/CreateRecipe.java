@@ -78,6 +78,17 @@ public class CreateRecipe extends Activity {
 
 
     public void recipe_pic(View view) throws IOException {
+        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+
+        }
         File dir;
         photo_name = recipe_name.replaceAll("\\s+", "");
         /* creating folder*/
@@ -132,17 +143,7 @@ public class CreateRecipe extends Activity {
         System.gc();
         super.onActivityResult(requestCode, resultCode, data);
 
-        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-        if (permission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
-            ActivityCompat.requestPermissions(
-                    this,
-                    PERMISSIONS_STORAGE,
-                    REQUEST_EXTERNAL_STORAGE
-            );
-
-        }
         if (resultCode == RESULT_OK && camera_flag==false) {
             if(data.getData() != null)
             {
