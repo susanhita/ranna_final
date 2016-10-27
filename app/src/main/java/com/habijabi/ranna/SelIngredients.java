@@ -102,14 +102,13 @@ public class SelIngredients extends Activity  {
             String[] ingtext1=new String[j-5-7];
             for (int i=0,k = 5; k < j; k++) {
                 if (!(k>57 && k<66))
-                ingtext1[i]=ingtext[k].replaceAll("_", " ");
-                hh[i]=R.drawable.test;
+                ingtext1[i]=ingtext[k];
                 i++;
             }
 
             ListView listView=(ListView)findViewById(R.id.listsel);
 
-            CustomAdapter listAdapter=new CustomAdapter(SelIngredients.this,ingtext1,hh);
+            CustomAdapter listAdapter=new CustomAdapter(SelIngredients.this,ingtext1);
             listView.setAdapter(listAdapter);
             listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
