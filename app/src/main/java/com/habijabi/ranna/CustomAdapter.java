@@ -1,13 +1,13 @@
 package com.habijabi.ranna;
 
-        import android.app.Activity;
-        import android.net.Uri;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ArrayAdapter;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.app.Activity;
+import android.net.Uri;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class CustomAdapter extends ArrayAdapter<String> {
 
@@ -34,17 +34,17 @@ public class CustomAdapter extends ArrayAdapter<String> {
             imageView.setImageResource(R.drawable.cardamom);
         else if (web[position].contains("আটা"))
             imageView.setImageResource(R.drawable.aata);
-       else if (web[position].contains("বাঁধাকপি"))
+        else if (web[position].contains("বাঁধাকপি"))
             imageView.setImageResource(R.drawable.bandhakopi);
-       else if (web[position].contains("বেগুন"))
+        else if (web[position].contains("বেগুন"))
             imageView.setImageResource(R.drawable.begun);
-       else if (web[position].contains("আখের_গুড়"))
+        else if (web[position].contains("আখের গুড়"))
             imageView.setImageResource(R.drawable.cane_jaggery);
         else  if (web[position].contains("ফুলকপি"))
             imageView.setImageResource(R.drawable.cauliflower);
         else  if (web[position].contains("লঙ্কা"))
             imageView.setImageResource(R.drawable.chilly);
-        else if (web[position].contains("লাল_মরিচ_গুঁড়া"))
+        else if (web[position].contains("লাল মরিচ গুঁড়া"))
             imageView.setImageResource(R.drawable.chilly_pow);
         else if (web[position].contains("দুধ"))
             imageView.setImageResource(R.drawable.milk);
@@ -52,13 +52,13 @@ public class CustomAdapter extends ArrayAdapter<String> {
             imageView.setImageResource(R.drawable.cloves);
         else if (web[position].contains("নারকেল"))
             imageView.setImageResource(R.drawable.coconut);
-        else  if (web[position].contains("ধনে_গুঁড়া"))
+        else  if (web[position].contains("ধনে গুঁড়া"))
             imageView.setImageResource(R.drawable.coriander_pow);
         else  if (web[position].contains("শসা"))
             imageView.setImageResource(R.drawable.cucumber);
-        else     if (web[position].contains("গোটা_জিরা"))
+        else     if (web[position].contains("গোটা জিরা"))
             imageView.setImageResource(R.drawable.cumin);
-        else  if (web[position].contains("জিরা_গুঁড়া"))
+        else  if (web[position].contains("জিরা গুঁড়া"))
             imageView.setImageResource(R.drawable.cumin_po);
         else  if (web[position].contains("ডিম"))
             imageView.setImageResource(R.drawable.eggs);
@@ -68,9 +68,9 @@ public class CustomAdapter extends ArrayAdapter<String> {
             imageView.setImageResource(R.drawable.garlic);
         else   if (web[position].contains("আদা"))
             imageView.setImageResource(R.drawable.ginger);
-        else if (web[position].contains("ইলিশ_মাছ"))
+        else if (web[position].contains("ইলিশ মাছ"))
             imageView.setImageResource(R.drawable.ilish);
-        else if (web[position].contains("কালো_জিরে"))
+        else if (web[position].contains("কালো জিরে"))
             imageView.setImageResource(R.drawable.kala_jeera);
         else if (web[position].contains("কাসুন্দি"))
             imageView.setImageResource(R.drawable.kasundi);
@@ -90,17 +90,17 @@ public class CustomAdapter extends ArrayAdapter<String> {
             imageView.setImageResource(R.drawable.milk);
 ////////////
 
-        else if (web[position].contains("শর্ষের_তেল"))
+        else if (web[position].contains("শর্ষের তেল"))
             imageView.setImageResource(R.drawable.mustad_oil);
 
-        else if (web[position].contains("শর্ষে "))
+        else if (web[position].contains("শর্ষে") && !(web[position].contains("শর্ষের তেল")))
             imageView.setImageResource(R.drawable.mustard);
 
 
         else if (web[position].contains("পেঁয়াজ"))
             imageView.setImageResource(R.drawable.onion);
 
-        else if (web[position].contains("খেজুরের_গুড়"))
+        else if (web[position].contains("খেজুরের গুড়"))
             imageView.setImageResource(R.drawable.palm_jaggery);
 
         else if (web[position].contains("গোলমরিচ"))
@@ -121,22 +121,22 @@ public class CustomAdapter extends ArrayAdapter<String> {
         else if (web[position].contains("কুমড়া"))
             imageView.setImageResource(R.drawable.pumkin);
 
-        else if (web[position].contains("লাল_মরিচ"))
-            imageView.setImageResource(R.drawable.red_chilly);
+        else if (web[position].contains("লাল মরিচ") && !(web[position].contains("লাল মরিচ গুঁড়া") ))
+        imageView.setImageResource(R.drawable.red_chilly);
 
-        else if (web[position].contains("রীফাইন্ড_তেল"))
+        else if (web[position].contains("রীফাইন্ড তেল"))
             imageView.setImageResource(R.drawable.refined_oil);
 
         else if (web[position].contains("চাল"))
             imageView.setImageResource(R.drawable.rice);
 
-        else if (web[position].contains("রুই_মাছ"))
+        else if (web[position].contains("রুই মাছ"))
             imageView.setImageResource(R.drawable.rogu);
 
         else if (web[position].contains("লবণ"))
             imageView.setImageResource(R.drawable.salt);
 
-        else if (web[position].contains("পালং_শাক"))
+        else if (web[position].contains("পালং শাক"))
             imageView.setImageResource(R.drawable.spinach);
 
         else if (web[position].contains("তেজপাতা"))
@@ -160,7 +160,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
         else if (web[position].contains("পোস্ত"))
             imageView.setImageResource(R.drawable.posto);
 
-        else if (web[position].contains("বেকিং_পাউডার"))
+        else if (web[position].contains("বেকিং পাউডার"))
             imageView.setImageResource(R.drawable.baking_powder);
 
         else if (web[position].contains("চিনি"))
@@ -168,62 +168,13 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
 
 
-///////////////////
+///////////////////orrect//////////////
         else
             imageView.setImageResource(R.drawable.test);
 
-        web[position]=web[position].replaceAll("_", " ");
+        // web[position]=web[position].replaceAll("_", " ");
         txtTitle.setText(web[position]);
 
         return rowView;
     }
 }
-      /*  if (web[position]=="বাঁধাকপি")
-            imageView.setImageResource(R.drawable.bandhakopi);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.begun);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        if (web[position]=="আটা")
-            imageView.setImageResource(R.drawable.aata);
-        return rowView;*/
-
-
