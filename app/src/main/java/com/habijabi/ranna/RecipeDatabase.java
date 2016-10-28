@@ -14,7 +14,7 @@ import android.util.Log;
  */
 
 public class RecipeDatabase  extends SQLiteOpenHelper {
-    private static final int DB_VERSION=5;
+    private static final int DB_VERSION=7;
     private static final String DB_NAME="RecipeDatabase";
 
     RecipeDatabase(Context context){
@@ -65,7 +65,7 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 + "ময়দা TEXT,"
                 + "আটা TEXT,"
                 + "চাল TEXT,"
-                + "ডাল TEXT,"
+                + "মুগ_ডাল TEXT,"
                 + "লাউ TEXT,"
                 + "শসা  TEXT,"
 
@@ -87,8 +87,11 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 +"আমিষ TEXT,"
                 +"মিষ্টান্ TEXT,"
                 +"অন্যান্য TEXT,"
-                +"পানীয TEXT"+
-                ");");
+                +"পানীয TEXT,"
+                +"মসুর_ডাল TEXT,"
+                +"ধনেপাতা TEXT"
+
+                + ");");
 
         //The grocery_list column will only be used in the pancake row.
         // This was done to prevent another table for grocery list
@@ -126,14 +129,17 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         //  updatemyDatabase(db, oldVersion, newVersion);
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXold version is "+oldVersion+"\n new versioln"+newVersion);
 
-        if ( oldVersion<5) {
-            db.execSQL("ALTER TABLE RECIPE ADD জলখাবার TEXT");
+        if ( oldVersion<7) {
+          db.execSQL("ALTER TABLE RECIPE ADD জলখাবার TEXT");
             db.execSQL("ALTER TABLE RECIPE ADD উৎসব TEXT");
             db.execSQL("ALTER TABLE RECIPE ADD নিরামিষ TEXT");
             db.execSQL("ALTER TABLE RECIPE ADD আমিষ TEXT");
             db.execSQL("ALTER TABLE RECIPE ADD মিষ্টান ্TEXT");
             db.execSQL("ALTER TABLE RECIPE ADD পানীয় TEXT");
             db.execSQL("ALTER TABLE RECIPE ADD অন্যান্য TEXT");
+            db.execSQL("ALTER TABLE RECIPE ADD মসুর_ডাল TEXT");
+             db.execSQL("ALTER TABLE RECIPE ADD ধনেপাতা  TEXT");
+
           //  db.execSQL("ALTER TABLE RECIPE MODIFY COLUMN  জলখাবার TEXT");
 
             System.out.println("aleady exisitng db");

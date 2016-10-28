@@ -86,8 +86,13 @@ public class CustomAdapter extends ArrayAdapter<String> {
             imageView.setImageResource(R.drawable.mouri);
         else if (web[position].contains("দুধ"))
             imageView.setImageResource(R.drawable.milk);
-        else if (web[position].contains("দুধ"))
-            imageView.setImageResource(R.drawable.milk);
+
+        else if (web[position].contains("মুগ ডাল"))
+            imageView.setImageResource(R.drawable.mug_dal);
+        else if (web[position].contains("মসুর ডাল"))
+            imageView.setImageResource(R.drawable.mosoor_dal);
+        else if (web[position].contains("৫ ফোড়ন"))
+            imageView.setImageResource(R.drawable.phoran);
 ////////////
 
         else if (web[position].contains("শর্ষের তেল"))
@@ -126,6 +131,11 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
         else if (web[position].contains("রীফাইন্ড তেল"))
             imageView.setImageResource(R.drawable.refined_oil);
+        else if (web[position].contains("ধনেপাতা"))
+            imageView.setImageResource(R.drawable.coriander);
+
+
+
 
         else if (web[position].contains("চাল"))
             imageView.setImageResource(R.drawable.rice);
