@@ -69,7 +69,7 @@ public class RecipeActivity extends Activity {
         System.gc();
     }
 
-    void timer(View view)
+    public void timer(View view)
     {
         TextView editTime = (TextView) findViewById(R.id.edittTime);
         editTime.setVisibility(View.VISIBLE);
@@ -83,51 +83,67 @@ public class RecipeActivity extends Activity {
         time.setVisibility(View.INVISIBLE);
     }
 
-    void resetTimer(View view){
+    public void resetTimer(View view){
         reset();
 
     }
 
-        void reset(){
-            cTimer.cancel();
-            TextView editTime = (TextView) findViewById(R.id.edittTime);
-            editTime.setVisibility(View.INVISIBLE);
-            editTime.setEnabled(true);
-            editTime.setText("");
-            Button timer = (Button) findViewById(R.id.timer);
-            timer.setVisibility(View.INVISIBLE);
-            timer.setText("Start");
-            timer.setClickable(true);
-            Button time = (Button) findViewById(R.id.time);
-            time.setVisibility(View.VISIBLE);
-            Button reset = (Button) findViewById(R.id.reset);
-            reset.setVisibility(View.INVISIBLE);
-        }
-    void startTimer(View view) {
+    public void reset(){
+
         TextView editTime = (TextView) findViewById(R.id.edittTime);
         String time_str= editTime.getText().toString().replaceAll("-","");
-        editTime.setEnabled(false);
+        if (time_str.length() >= 7 | time_str== "") {
+            editTime.setText("");
+            return;
+
+        }
+        if (cTimer!=null)
+            cTimer.cancel();
+
+        editTime.setVisibility(View.INVISIBLE);
+        editTime.setEnabled(true);
+        editTime.setText("");
         Button timer = (Button) findViewById(R.id.timer);
-        timer.setClickable(false);
-        cTimer = new CountDownTimer(Integer.parseInt(time_str)*1000, 1000) {
+        timer.setVisibility(View.INVISIBLE);
+        timer.setText("Start");
+        timer.setClickable(true);
+        Button time = (Button) findViewById(R.id.time);
+        time.setVisibility(View.VISIBLE);
+        Button reset = (Button) findViewById(R.id.reset);
+        reset.setVisibility(View.INVISIBLE);
+    }
+    public void startTimer(View view) {
+        TextView editTime = (TextView) findViewById(R.id.edittTime);
+        String time_str= editTime.getText().toString().replaceAll("-","");
+        if (time_str!= "" ) {
+            if (time_str.length() >= 7) {
+                Toast toast = Toast.makeText(this, "আপনি ১ সপ্তাহ ধরে রান্না করতে চান? ", Toast.LENGTH_SHORT);
+                toast.show();
+              return;
+            }
+            editTime.setEnabled(false);
             Button timer = (Button) findViewById(R.id.timer);
-            public void onTick(long millisUntilFinished) {
-                timer.setText("" + millisUntilFinished / 1000);
-            }
+            timer.setClickable(false);
+            cTimer = new CountDownTimer(Integer.parseInt(time_str) * 1000, 1000) {
+                Button timer = (Button) findViewById(R.id.timer);
 
-            public void onFinish() {
-                timer.setText("Done!");
-                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-                r.play();
-                reset();
+                public void onTick(long millisUntilFinished) {
+                    timer.setText("" + millisUntilFinished / 1000);
+                }
+
+                public void onFinish() {
+                    timer.setText("Done!");
+                    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                    r.play();
+                    reset();
 
 
-            }
+                }
 
 
-        }.start();
-
+            }.start();
+        }
 
     }
 
