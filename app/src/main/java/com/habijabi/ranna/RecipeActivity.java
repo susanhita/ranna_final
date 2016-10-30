@@ -17,6 +17,8 @@ import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -121,6 +123,8 @@ public class RecipeActivity extends Activity {
                 toast.show();
               return;
             }
+            final Animation logoMoveAnimation = AnimationUtils.loadAnimation(this, R.anim.timeanim);
+
             editTime.setEnabled(false);
             Button timer = (Button) findViewById(R.id.timer);
             timer.setClickable(false);
@@ -129,6 +133,7 @@ public class RecipeActivity extends Activity {
 
                 public void onTick(long millisUntilFinished) {
                     timer.setText("" + millisUntilFinished / 1000);
+                    timer.startAnimation(logoMoveAnimation);
                 }
 
                 public void onFinish() {

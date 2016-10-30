@@ -14,7 +14,7 @@ import android.util.Log;
  */
 
 public class RecipeDatabase  extends SQLiteOpenHelper {
-    private static final int DB_VERSION=7;
+    private static final int DB_VERSION=5;
     private static final String DB_NAME="RecipeDatabase";
 
     RecipeDatabase(Context context){
@@ -127,9 +127,9 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //  updatemyDatabase(db, oldVersion, newVersion);
-        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXold version is "+oldVersion+"\n new versioln"+newVersion);
+     //   System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXold version is "+oldVersion+"\n new versioln"+newVersion);
 
-        if ( oldVersion<7) {
+        if ( oldVersion<5) {
           db.execSQL("ALTER TABLE RECIPE ADD জলখাবার TEXT");
             db.execSQL("ALTER TABLE RECIPE ADD উৎসব TEXT");
             db.execSQL("ALTER TABLE RECIPE ADD নিরামিষ TEXT");

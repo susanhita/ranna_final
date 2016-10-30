@@ -44,7 +44,7 @@ public class SelIngredients extends Activity  {
         }
         if (Grocery.grocery==true||MainActivity.add_grocery==true) {
             TextView choose = (TextView) findViewById(R.id.choose_text);
-            choose.setText("?? ?? ?????? ????? ???");
+            choose.setText("ি কি উপাদান কিনতে হবে");
             actionBar.setDisplayShowHomeEnabled(true);
         }
         new displayCheckboxes().execute();
@@ -195,7 +195,7 @@ public class SelIngredients extends Activity  {
         }
 
         else{
-            Toast toast=Toast.makeText(this,"?????? ?????? ??????? ????",Toast.LENGTH_SHORT);
+            Toast toast=Toast.makeText(this,"ডেটাবেসে  গন্ডগোল ",Toast.LENGTH_SHORT);
             toast.show();
         }
 
