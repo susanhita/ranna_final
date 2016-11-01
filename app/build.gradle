@@ -11,7 +11,7 @@ android {
         applicationId "com.habijabi.ranna"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 8
+        versionCode 16
     }
     buildTypes {
         release {

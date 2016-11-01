@@ -180,7 +180,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
 ///////////////////orrect//////////////
         else
-            imageView.setImageResource(R.drawable.test);
+            imageView.setImageResource(R.drawable.icon);
 
         // web[position]=web[position].replaceAll("_", " ");
         txtTitle.setText(web[position]);

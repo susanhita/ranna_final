@@ -71,6 +71,8 @@ public class SelIngredients extends Activity  {
             SQLiteOpenHelper recipedb = new RecipeDatabase(SelIngredients.this);
             try{
                 SQLiteDatabase db = recipedb.getWritableDatabase();
+
+
                 Cursor cursor = db.rawQuery("PRAGMA table_info(RECIPE)", null);
                 cursor.moveToFirst();
                 while (cursor.isAfterLast() == false) {

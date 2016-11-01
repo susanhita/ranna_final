@@ -5,7 +5,6 @@
     <string name="title_activity_check_ingredients">CheckIngredients</string>
 
 
-
     <string name="you_added">আপনি নিম্নলিখিত উপাদানগুলো যুক্ত করেছেন :-"</string>
     <string name="add_more">আরো উপাদান যোগ করুন</string>
     <string name="add">যোগ করুন</string>
@@ -49,7 +48,6 @@
     <string name="three">  "  ৩"</string>
     <string name="four">  "  ৪"</string>
     <string name="five">  "  ৫"</string>
-
 
 
     <string name="banner_home_footer1">ca-app-pub-2155626911251067/8824273832</string>

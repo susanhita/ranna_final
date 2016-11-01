@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.habijabi.ranna" >
+    package="com.habijabi.ranna">
 
     <!-- Mandatory permission -->
 
@@ -16,16 +16,16 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="com.habijabi.ranna.SplashScreen"
+            android:name=".SplashScreen"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,102 +33,92 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.habijabi.ranna.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-
-
-
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="com.habijabi.ranna.CreateRecipe"
+            android:name=".CreateRecipe"
             android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_create_recipe"
-            >
-        </activity>
+            android:label="@string/title_activity_create_recipe"></activity>
         <activity
-            android:name="com.habijabi.ranna.ViewRecipe"
-            android:parentActivityName="com.habijabi.ranna.MainActivity" >
+            android:name=".ViewRecipe"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.habijabi.ranna.MainActivity" />
         </activity>
         <activity
-            android:name="com.habijabi.ranna.RecipeActivity"
-            android:parentActivityName="com.habijabi.ranna.MainActivity" >
+            android:name=".RecipeActivity"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.habijabi.ranna.MainActivity" />
         </activity>
         <activity
-            android:name="com.habijabi.ranna.RandomReceipe"
-            android:parentActivityName="com.habijabi.ranna.MainActivity" >
+            android:name=".RandomReceipe"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.habijabi.ranna.MainActivity" />
         </activity>
         <activity
-            android:name="com.habijabi.ranna.SelIngredients"
+            android:name=".SelIngredients"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.habijabi.ranna.MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.habijabi.ranna.MainActivity" />
         </activity>
         <activity
-            android:name="com.habijabi.ranna.AddIngredients"
+            android:name=".AddIngredients"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.habijabi.ranna.SelIngredients" >
+            android:parentActivityName=".SelIngredients">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.habijabi.ranna.SelIngredients" />
         </activity>
         <activity
-            android:name="com.habijabi.ranna.SuggestRecipe"
+            android:name=".SuggestRecipe"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.habijabi.ranna.MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.habijabi.ranna.MainActivity" />
         </activity>
         <activity
-            android:name="com.habijabi.ranna.PrintSuggestedRecipe"
-            android:parentActivityName="com.habijabi.ranna.MainActivity" >
+            android:name=".PrintSuggestedRecipe"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.habijabi.ranna.MainActivity" />
         </activity>
         <activity
-            android:name="com.habijabi.ranna.Grocery"
+            android:name=".Grocery"
             android:label="Grocery List"
-            android:parentActivityName="com.habijabi.ranna.MainActivity" >
-
-        </activity>
+            android:parentActivityName=".MainActivity"></activity>
         <activity
-            android:name="com.habijabi.ranna.CreateGroceryList"
+            android:name=".CreateGroceryList"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.habijabi.ranna.Grocery" >
+            android:parentActivityName=".Grocery">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.habijabi.ranna.Grocery" />
         </activity>
         <activity
-            android:name="com.habijabi.ranna.ViewGroceryList"
-            android:parentActivityName="com.habijabi.ranna.MainActivity" >
+            android:name=".ViewGroceryList"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.habijabi.ranna.MainActivity" />
         </activity>
 
-        <receiver android:name="com.habijabi.ranna.NotificationGrocery" />
+        <receiver android:name=".NotificationGrocery" />
 
         <activity
-            android:name="com.habijabi.ranna.DeleteActivity"
-            android:theme="@android:style/Theme.Holo.Dialog" >
-        </activity>
-        <activity android:name="com.habijabi.ranna.CreateRecipe1">
-        </activity>
+            android:name=".DeleteActivity"
+            android:theme="@android:style/Theme.Holo.Dialog"></activity>
+        <activity android:name=".CreateRecipe1"></activity>
+        <activity android:name=".RecipeCategory"></activity>
     </application>
 
 </manifest>

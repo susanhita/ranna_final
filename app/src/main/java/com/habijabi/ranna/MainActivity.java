@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
     }
 
     public void view_recipe(View view){
-        Intent intent=new Intent(this,ViewRecipe.class);
+        Intent intent=new Intent(this,RecipeCategory.class);
         startActivity(intent);
     }
     public void random_receipe(View view){
