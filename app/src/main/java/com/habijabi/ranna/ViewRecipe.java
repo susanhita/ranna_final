@@ -19,6 +19,7 @@ public class ViewRecipe extends ListActivity {
     private SQLiteDatabase db;
     private Cursor cursor;
     private CursorAdapter listAdapter;
+    String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +29,22 @@ public class ViewRecipe extends ListActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         ListView listDrinks = getListView();
 
+        Intent intent = getIntent();
+        category = intent.getStringExtra("category");
+
+        System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZhere"+category+"xxxxxxxx");
+
 
       try {
-            SQLiteOpenHelper recipedb = new RecipeDatabase(ViewRecipe.this);
-            db = recipedb.getWritableDatabase();
-            cursor = db.query("RECIPE", new String[]{"_id","NAME"}, null, null, null, null, null);
+          SQLiteOpenHelper recipedb = new RecipeDatabase(ViewRecipe.this);
+          db = recipedb.getWritableDatabase();
+          //
+          if (category.equals("all")){
+              cursor = db.query("RECIPE", new String[]{"_id", "NAME"}, null, null, null, null, null);
+          }
+          else {
+              cursor = db.rawQuery("select _id,NAME from RECIPE WHERE " + category + "=1", null);
+          }
             listAdapter = new SimpleCursorAdapter(ViewRecipe.this, android.R.layout.simple_list_item_1, cursor, new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
             listDrinks.setAdapter(listAdapter);
         }
@@ -43,6 +55,8 @@ public class ViewRecipe extends ListActivity {
 
 
     }
+
+
 
     public void onDestroy() {
         super.onDestroy();
@@ -70,7 +84,8 @@ public class ViewRecipe extends ListActivity {
         }
         else {
             Intent intent = new Intent(this, RecipeActivity.class);
-            intent.putExtra(RecipeActivity.EXTRA_RECIPENO, (int) id);
+            String name=itemView.toString();
+            intent.putExtra(RecipeActivity.EXTRA_RECIPENO, name);
             startActivity(intent);
         }
 

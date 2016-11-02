@@ -38,7 +38,7 @@ public class RecipeActivity extends Activity {
         ActionBar actionBar=getActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         Intent intent = getIntent();
-        int drinkNo = (Integer) getIntent().getExtras().get(EXTRA_RECIPENO);
+        String drinkNo = intent.getStringExtra("name");
         new UpdateRecipeClass().execute(drinkNo);
 
     }
@@ -154,16 +154,16 @@ public class RecipeActivity extends Activity {
 
 
 
-private class UpdateRecipeClass extends AsyncTask<Integer,Void,Boolean> {
+private class UpdateRecipeClass extends AsyncTask<String,Void,Boolean> {
         public String desctext,nametext,resourceid;
         protected void onPreExecute(){}
-        protected Boolean doInBackground(Integer...drinks) {
-            int drinkNo=drinks[0];
+        protected Boolean doInBackground(String...drinks) {
+            String drinkNo=drinks[0];
             SQLiteOpenHelper starbuzzdb = new RecipeDatabase(RecipeActivity.this);
             try {
                 SQLiteDatabase db = starbuzzdb.getWritableDatabase();
 
-                Cursor cursor = db.query("RECIPE", new String[]{"NAME", "DESCRIPTION", "IMAGE_RESOURCE_ID"}, "_id = ?", new String[]{Integer.toString(drinkNo)}, null, null, null);
+                Cursor cursor = db.query("RECIPE", new String[]{"NAME", "DESCRIPTION", "IMAGE_RESOURCE_ID"}, "NAME = ?", new String[]{drinkNo}, null, null, null);
                 if (cursor.moveToFirst()) {
                     nametext = cursor.getString(0);
                     desctext = cursor.getString(1);

@@ -56,7 +56,9 @@ public class MainActivity extends Activity {
     }
     public void delete_receipe(View view){
         this.delete=true;
+
         Intent intent=new Intent(this,ViewRecipe.class);
+        intent.putExtra("category","all");
         startActivity(intent);
     }
 
