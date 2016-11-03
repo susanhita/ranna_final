@@ -32,7 +32,7 @@ public class CreateRecipe1 extends Activity {
         Button next=(Button)findViewById(R.id.next);
         next.setTypeface(custom_font);
 
-        final CharSequence[] items = {"জলখাবার", "নিরামিষ", "আমিষ", "উৎসব","পানীয়","মিষ্টান্"};
+        final CharSequence[] items = {"জলখাবার", "নিরামিষ", "আমিষ", "বিদেশী","পানীয়","মিষ্টান্"};
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
         builder1.setTitle("এই রেসিপি কোন বিভাগের অংশভুক্ত?");
         builder1.setItems(items, new DialogInterface.OnClickListener() {
@@ -46,7 +46,7 @@ public class CreateRecipe1 extends Activity {
 
                 } else if (items[item].equals("মিষ্টান্")) {
                     CreateRecipe1.category = "মিষ্টান্";
-                } else if (items[item].equals("উৎসব")) {
+                } else if (items[item].equals("বিদেশী")) {
                     CreateRecipe1.category = "উৎসব";
                 } else if (items[item].equals("পানীয়")) {
                     CreateRecipe1.category = "পানীয়";
@@ -66,9 +66,7 @@ public class CreateRecipe1 extends Activity {
     public void next(View view){
         columns = columns.concat("," + CreateRecipe1.category);
         values = values.concat(",'YES'");
-        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXxcreate1xxxxXXXXold version is "+CreateRecipe1.category);
 
-        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXxcreate1xxxxXXXXold version is "+columns);
 
 
         EditText editText = (EditText) findViewById(R.id.recipe_name);

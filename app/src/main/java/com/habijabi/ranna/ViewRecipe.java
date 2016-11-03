@@ -33,7 +33,6 @@ public class ViewRecipe extends ListActivity {
         Intent intent = getIntent();
         category = intent.getStringExtra("category");
 
-        System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZhere"+category+"xxxxxxxx");
 
 
         try {
@@ -44,7 +43,6 @@ public class ViewRecipe extends ListActivity {
                 cursor = db.query("RECIPE", new String[]{"_id", "NAME"}, null, null, null, null, null);
             }
             else {
-                System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"+"select _id,NAME from RECIPE WHERE " + category + "='YES'");
                 cursor = db.rawQuery("select _id,NAME from RECIPE WHERE " + category + "  ='YES'", null);
 
             }
@@ -87,8 +85,7 @@ public class ViewRecipe extends ListActivity {
         }
         else {
             Intent intent = new Intent(this, RecipeActivity.class);
-            String name=itemView.toString();
-            intent.putExtra(RecipeActivity.EXTRA_RECIPENO, name);
+            intent.putExtra(RecipeActivity.EXTRA_RECIPENO, (int) id);
             startActivity(intent);
         }
 

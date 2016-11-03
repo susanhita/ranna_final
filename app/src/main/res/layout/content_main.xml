@@ -80,7 +80,7 @@
         android:layout_gravity="center_horizontal"
         android:id="@+id/suggest"
         android:layout_marginTop="12dp"
-        android:text="@string/suggest"
+        android:text="উপকরণ অনুযায়ী রেসিপি"
         android:textSize="10pt"
 
         android:textColor="#280d0d"
