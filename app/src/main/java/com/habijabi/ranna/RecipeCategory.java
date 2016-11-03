@@ -17,20 +17,20 @@ public class RecipeCategory extends Activity {
 
     public void veg(View view){
         Intent intent=new Intent(this,ViewRecipe.class);
-        category="veg";
+        category="নিরামিষ";
         intent.putExtra("category", category);
         startActivity(intent);
     }
     public void nonveg(View view){
         Intent intent=new Intent(this,ViewRecipe.class);
-        category="nonveg";
+        category="আমিষ";
         intent.putExtra("category", category);
         startActivity(intent);
 
     }
     public void festival(View view){
         Intent intent=new Intent(this,ViewRecipe.class);
-        category="festival";
+        category="উৎসব";
 
         intent.putExtra("category", category);
         startActivity(intent);
@@ -39,7 +39,7 @@ public class RecipeCategory extends Activity {
 
     public void beverage(View view){
         Intent intent=new Intent(this,ViewRecipe.class);
-        category="beverage";
+        category="পানীয়";
         intent.putExtra("category", category);
         startActivity(intent);
 
@@ -47,7 +47,7 @@ public class RecipeCategory extends Activity {
 
     public void all(View view){
         Intent intent=new Intent(this,ViewRecipe.class);
-        category="all";
+        category="অন্যান্য";
         intent.putExtra("category", category);
         startActivity(intent);
 
@@ -55,7 +55,15 @@ public class RecipeCategory extends Activity {
 
     public void snacks(View view){
         Intent intent=new Intent(this,ViewRecipe.class);
-        category="snacks";
+        category="জলখাবার";
+        intent.putExtra("category", category);
+        startActivity(intent);
+
+    }
+
+    public void desserts(View view){
+        Intent intent=new Intent(this,ViewRecipe.class);
+        category="মিষ্টান্";
         intent.putExtra("category", category);
         startActivity(intent);
 

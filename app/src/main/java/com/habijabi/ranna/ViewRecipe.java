@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
@@ -35,16 +36,18 @@ public class ViewRecipe extends ListActivity {
         System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZhere"+category+"xxxxxxxx");
 
 
-      try {
-          SQLiteOpenHelper recipedb = new RecipeDatabase(ViewRecipe.this);
-          db = recipedb.getWritableDatabase();
-          //
-          if (category.equals("all")){
-              cursor = db.query("RECIPE", new String[]{"_id", "NAME"}, null, null, null, null, null);
-          }
-          else {
-              cursor = db.rawQuery("select _id,NAME from RECIPE WHERE " + category + "=1", null);
-          }
+        try {
+            SQLiteOpenHelper recipedb = new RecipeDatabase(ViewRecipe.this);
+            db = recipedb.getWritableDatabase();
+            //
+            if (category.equals("অন্যান্য")){
+                cursor = db.query("RECIPE", new String[]{"_id", "NAME"}, null, null, null, null, null);
+            }
+            else {
+                System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"+"select _id,NAME from RECIPE WHERE " + category + "='YES'");
+                cursor = db.rawQuery("select _id,NAME from RECIPE WHERE " + category + "  ='YES'", null);
+
+            }
             listAdapter = new SimpleCursorAdapter(ViewRecipe.this, android.R.layout.simple_list_item_1, cursor, new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
             listDrinks.setAdapter(listAdapter);
         }

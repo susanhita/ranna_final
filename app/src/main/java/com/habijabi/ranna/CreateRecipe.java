@@ -71,7 +71,7 @@ public class CreateRecipe extends Activity {
         paste.setTypeface(custom_font);
 
 
-
+System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXX"+columns+"vvvvvvvvvvv"+values);
 
 
     }

@@ -104,7 +104,7 @@ public class SelIngredients extends Activity  {
             String[] ingtext1=new String[j-5-7];
             for (int i=0,k = 5; k < j; k++) {
                 if (!(k>57 && k<65)){
-
+                ingtext1[i]=ingtext[k].replaceAll("_"," ");
                 i++;}
             }
 

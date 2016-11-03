@@ -14,7 +14,7 @@ import android.util.Log;
  */
 
 public class RecipeDatabase  extends SQLiteOpenHelper {
-    private static final int DB_VERSION=7;
+    private static final int DB_VERSION=8;
     private static final String DB_NAME="RecipeDatabase";
 
     RecipeDatabase(Context context){
@@ -87,7 +87,7 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 +"আমিষ TEXT,"
                 +"মিষ্টান্ TEXT,"
                 +"অন্যান্য TEXT,"
-                +"পানীয TEXT,"
+                +"পানীয় TEXT,"
                 +"মসুর_ডাল TEXT,"
                 +"ধনেপাতা TEXT"
 
