@@ -29,15 +29,56 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 + "GROCERY_LIST TEXT,"
                 + "চিনি TEXT,"
                 + "দুধ TEXT,"
-                + "ডিম TEXT,"
-                + "মাখন TEXT,"
                 + "বেকিং_পাউডার TEXT,"
                 + "লবণ TEXT,"
+
+              ///////
+                + "ঘি TEXT,"
+                + "মাখন TEXT,"
+                + "শর্ষের_তেল TEXT,"
+                + "রীফাইন্ড_তেল TEXT,"
+
+                ///////
+                + "পালং_শাক TEXT,"
+                + "পুইঁশাক TEXT,"
+                //////////
+                + "ময়দা TEXT,"
+                + "আটা TEXT,"
+                + "চাল TEXT,"
+
+                //////
+                + "আখের_গুড় TEXT,"
+                + "খেজুরের_গুড় TEXT,"
+                //////
                 + "আদা TEXT,"
                 + "রসুন TEXT,"
                 + "পেঁয়াজ TEXT,"
                 + "আলু TEXT,"
                 + "টমেটো TEXT,"
+                + "এঁচোড় TEXT,"
+                + "বেগুন TEXT,"
+                + "কুমড়া  TEXT,"
+                + "লাউ TEXT,"
+                + "শসা  TEXT,"
+                + "ফুলকপি  TEXT,"
+                + "বাঁধাকপি  TEXT,"
+                + "পটল TEXT,"
+                + "করলা TEXT,"
+                + "নারকেল TEXT,"
+
+
+                /////////
+                + "ডিম TEXT,"
+                + "রুই_মাছ TEXT,"
+                + "ইলিশ_মাছ TEXT,"
+                + "চিংড়ি TEXT,"
+            ////////
+
+
+                +"ধনেপাতা TEXT,"
+                + "তেজপাতা TEXT,"
+                + "এলাচ TEXT,"
+                + "লবঙ্গ TEXT,"
                 + "লঙ্কা TEXT,"
                 + "হলুদ TEXT,"
                 + "গোটা_জিরা TEXT,"
@@ -47,40 +88,18 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 + "লাল_মরিচ TEXT,"
                 + "কালো_জিরে  TEXT,"
                 + "৫_ফোড়ন TEXT,"
-                + "ঘি TEXT,"
-                + "পোস্ত TEXT,"
-                + "নারকেল TEXT,"
-                + "কাসুন্দি TEXT,"
-                + "ফুলকপি  TEXT,"
-                + "বাঁধাকপি  TEXT,"
-                + "পটল TEXT,"
                 + "শর্ষে  TEXT,"
-                + "শর্ষের_তেল TEXT,"
-                + "রীফাইন্ড_তেল TEXT,"
+                + "পোস্ত TEXT,"
                 + "মেথি  TEXT,"
                 + "মৌব়ি  TEXT,"
-                + "পালং_শাক TEXT,"
-                + "পুইঁশাক TEXT,"
                 + "গোলমরিচ TEXT,"
-                + "ময়দা TEXT,"
-                + "আটা TEXT,"
-                + "চাল TEXT,"
-                + "মুগ_ডাল TEXT,"
-                + "লাউ TEXT,"
-                + "শসা  TEXT,"
+                + "কাসুন্দি TEXT,"
 
-                + "করলা TEXT,"
-                + "আখের_গুড় TEXT,"
-                + "খেজুরের_গুড় TEXT,"
-                + "এঁচোড় TEXT,"
-                + "বেগুন TEXT,"
-                + "কুমড়া  TEXT,"
-                + "রুই_মাছ TEXT,"
-                + "ইলিশ_মাছ TEXT,"
-                + "চিংড়ি TEXT,"
-                + "তেজপাতা TEXT,"
-                + "এলাচ TEXT,"
-                + "লবঙ্গ TEXT,"
+
+
+
+
+                /////////////////////
                 +"জলখাবার TEXT,"
                 +"নিরামিষ TEXT,"
                 +"উৎসব TEXT,"
@@ -88,8 +107,10 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 +"মিষ্টান্ TEXT,"
                 +"অন্যান্য TEXT,"
                 +"পানীয় TEXT,"
+                /////////////////////
                 +"মসুর_ডাল TEXT,"
-                +"ধনেপাতা TEXT"
+                + "মুগ_ডাল TEXT"
+
 
                 + ");");
 
