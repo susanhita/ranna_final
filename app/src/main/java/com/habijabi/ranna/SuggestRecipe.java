@@ -61,10 +61,14 @@ public class SuggestRecipe extends Activity {
             LinearLayout layout = (LinearLayout) findViewById(R.id.suggest_recipe);
 
             for (int k = 5; k < j; k++) {
-                CheckBox chkTeamName = new CheckBox(SuggestRecipe.this);
-                chkTeamName.setId(k);
-                chkTeamName.setText(ingtext[k].replaceAll("_", " "));
-                layout.addView(chkTeamName);
+                if (!(k>57 && k<65)) {
+
+                    CheckBox chkTeamName = new CheckBox(SuggestRecipe.this);
+                    chkTeamName.setId(k);
+                    chkTeamName.setText(ingtext[k].replaceAll("_", " "));
+                    layout.addView(chkTeamName);
+                }
+
             }
         }
     }
@@ -79,25 +83,25 @@ public class SuggestRecipe extends Activity {
 
         String Tot_suggest="SELECT _id,NAME FROM RECIPE WHERE ";
         for (int k = 5; k <  j; k++) {
-            CheckBox chkTeamName = (CheckBox) findViewById(k);
-            if (chkTeamName.isChecked()) {
-               flag=1;
-               Tot_suggest = Tot_suggest.concat(and + ingtext[k]+ "='YES'");
-               and=" OR ";
-            }
-            else{
-                new_string=new_string.concat(mul+ingtext[k]);
-                mul=" * ";
-                sum_string=" AND ("+new_string+")<1 ";
+            if (!(k > 57 && k < 65)) {
+
+                CheckBox chkTeamName = (CheckBox) findViewById(k);
+                if (!chkTeamName.isChecked()) {
+
+                    new_string = new_string.concat(and + ingtext[k] + " IS NULL");
+                    and=" AND ";
+                } else {
+                    flag = 1;
+                }
             }
         }
-        Tot_suggest=Tot_suggest.concat(sum_string);
+        Tot_suggest=Tot_suggest.concat(new_string);
         Tot_suggest = Tot_suggest.concat(";");
         if (flag==1) {
             Intent intent = new Intent(this, PrintSuggestedRecipe.class);
             intent.putExtra("Tot_suggest", Tot_suggest);
-            startActivity(intent);
-            finish();
+           startActivity(intent);
+         finish();
         }
         else{
             Toast toast=Toast.makeText(this,"প্রথমে উপাদান সিলেক্ট করুন.",Toast.LENGTH_SHORT);
