@@ -5,6 +5,7 @@
     android:background="@drawable/splash1"
     android:theme="@style/AppTheme.NoActionBar"
     android:layout_width="match_parent"
+    android:id="@+id/splashscreen"
     android:layout_height="match_parent"
     tools:context=".SplashScreen">
 

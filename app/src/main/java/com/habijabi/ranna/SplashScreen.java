@@ -16,19 +16,15 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.splash);
-        Thread timerThread = new Thread(){
-            public void run(){
-                try{
-                    sleep(2000);
-                }catch(InterruptedException e){
-                    e.printStackTrace();
-                }finally{
+
                     Intent intent = new Intent(SplashScreen.this,MainActivity.class);
-                    startActivity(intent);
-                }
-            }
-        };
-        timerThread.start();
+
+
+        Activity activity = this;
+        //activity.overridePendingTransition(R.anim.flip,R.anim.move);
+      //  activity.finish();
+        activity.overridePendingTransition(R.anim.flip,R.anim.move);
+        activity.startActivity(intent);
     }
 
     @Override
