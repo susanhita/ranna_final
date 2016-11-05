@@ -13,12 +13,9 @@ public class SplashScreen extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.flip,R.anim.flip);
-
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.splash);
-
         Thread timerThread = new Thread(){
             public void run(){
                 try{
@@ -32,8 +29,6 @@ public class SplashScreen extends Activity {
             }
         };
         timerThread.start();
-
-
     }
 
     @Override
@@ -42,41 +37,6 @@ public class SplashScreen extends Activity {
         finish();
     }
 
-    @Override public void finish()
-    {
-        super.finish();
-        overridePendingTransition(R.anim.flip, R.anim.flip);
-    }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
