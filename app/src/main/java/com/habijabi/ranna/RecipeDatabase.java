@@ -102,7 +102,7 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 /////////////////////
                 +"জলখাবার TEXT,"
                 +"নিরামিষ TEXT,"
-                +"উৎসব TEXT,"
+                +"উৎসব TEXT," //bideshi
                 +"আমিষ TEXT,"
                 +"মিষ্টান্ TEXT,"
                 +"অন্যান্য TEXT,"
@@ -141,6 +141,8 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         drinkValues.put("ময়দা", "YES");
         drinkValues.put("মাখন","YES");
         drinkValues.put("বেকিং_পাউডার","YES");
+        drinkValues.put("উৎসব","YES");
+
         drinkValues.put("দুধ", "YES");
 
         db.insert("RECIPE", null, drinkValues);
@@ -164,6 +166,9 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
 
           //  db.execSQL("ALTER TABLE RECIPE MODIFY COLUMN  জলখাবার TEXT");
 
+            if ( oldVersion==7) {
+                db.execSQL("ALTER TABLE RECIPE ADD পানীয় TEXT");
+            }
             System.out.println("aleady exisitng db");
         }
 
