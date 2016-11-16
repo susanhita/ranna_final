@@ -6,6 +6,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
 
     <permission
         android:name="android.permission.STATUS_BAR_SERVICE"
@@ -35,11 +36,11 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CreateRecipe"
             android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_create_recipe"></activity>
+            android:label="@string/title_activity_create_recipe" />
         <activity
             android:name=".ViewRecipe"
             android:parentActivityName=".MainActivity">
@@ -95,7 +96,7 @@
         <activity
             android:name=".Grocery"
             android:label="Grocery List"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".CreateGroceryList"
             android:configChanges="orientation|screenSize"
@@ -116,9 +117,14 @@
 
         <activity
             android:name=".DeleteActivity"
-            android:theme="@android:style/Theme.Holo.Dialog"></activity>
-        <activity android:name=".CreateRecipe1"></activity>
-        <activity android:name=".RecipeCategory"></activity>
+            android:theme="@android:style/Theme.Holo.Dialog" />
+        <activity android:name=".CreateRecipe1" />
+        <activity android:name=".RecipeCategory" />
+
+
+
+
+
     </application>
 
 </manifest>

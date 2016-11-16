@@ -3,11 +3,20 @@ package com.habijabi.ranna;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
-import android.provider.Settings;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created by susanhita on 17-01-2016.
@@ -16,100 +25,102 @@ import android.util.Log;
 public class RecipeDatabase  extends SQLiteOpenHelper {
     private static final int DB_VERSION=8;
     private static final String DB_NAME="RecipeDatabase";
+     public static int j;
 
     RecipeDatabase(Context context){
         super(context,DB_NAME,null,DB_VERSION);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE RECIPE(_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "NAME TEXT, "
-                + "DESCRIPTION TEXT,"
-                + "IMAGE_RESOURCE_ID TEXT,"
-                + "GROCERY_LIST TEXT,"
-                + "চিনি TEXT,"
-                + "দুধ TEXT,"
-                + "বেকিং_পাউডার TEXT,"
-                + "লবণ TEXT,"
+        db.execSQL("CREATE TABLE RECIPE(_id INTEGER PRIMARY KEY AUTOINCREMENT," //0
+                + "NAME TEXT, "                                                                                                                             //1
+                + "DESCRIPTION TEXT,"                                                                                                              //2
+                + "IMAGE_RESOURCE_ID TEXT,"                                                                                             //3
+                + "GROCERY_LIST TEXT,"                                                                                                          //4
+                + "চিনি TEXT,"                                                                                                                                   //5
+                + "দুধ TEXT,"                                                                                                                                      //6
+                + "বেকিং_পাউডার TEXT,"                                                                                                                     //7
+                + "লবণ TEXT,"                                                                                                                                   //8
 
               ///////
-                + "ঘি TEXT,"
-                + "মাখন TEXT,"
-                + "শর্ষের_তেল TEXT,"
-                + "রীফাইন্ড_তেল TEXT,"
+                + "ঘি TEXT,"                                                                                                                                        //9
+                + "মাখন TEXT,"                                                                                                                                  //10
+                + "শর্ষের_তেল TEXT,"                                                                                                                       //11
+                + "রীফাইন্ড_তেল TEXT,"                                                                                                                     //12
 
                 ///////
-                + "পালং_শাক TEXT,"
-                + "পুইঁশাক TEXT,"
+                + "পালং_শাক TEXT,"                                                                                                                          //13
+                + "পুইঁশাক TEXT,"                                                                                                                               //14
                 //////////
-                + "ময়দা TEXT,"
-                + "আটা TEXT,"
-                + "চাল TEXT,"
+                + "ময়দা TEXT,"                                                                                                                                 //15
+                + "আটা TEXT,"                                                                                                                                   //16
+                + "চাল TEXT,"                                                                                                                                   //17
 
                 //////
-                + "আখের_গুড় TEXT,"
-                + "খেজুরের_গুড় TEXT,"
+                + "আখের_গুড় TEXT,"                                                                                                                     //18
+                + "খেজুরের_গুড় TEXT,"                                                                                                                  //19
                 //////
-                + "আদা TEXT,"
-                + "রসুন TEXT,"
-                + "পেঁয়াজ TEXT,"
-                + "আলু TEXT,"
-                + "টমেটো TEXT,"
-                + "এঁচোড় TEXT,"
-                + "বেগুন TEXT,"
-                + "কুমড়া  TEXT,"
-                + "লাউ TEXT,"
-                + "শসা  TEXT,"
-                + "ফুলকপি  TEXT,"
-                + "বাঁধাকপি  TEXT,"
-                + "পটল TEXT,"
-                + "করলা TEXT,"
-                + "নারকেল TEXT,"
+                + "আদা TEXT,"                                                                                                                               //20
+                + "রসুন TEXT,"                                                                                                                                  //21
+                + "পেঁয়াজ TEXT,"                                                                                                                            //22
+                + "আলু TEXT,"                                                                                                                                 //23
+                + "টমেটো TEXT,"                                                                                                                             //24
+                + "এঁচোড় TEXT,"                                                                                                                            //25
+                + "বেগুন TEXT,"                                                                                                                                 //26
+                + "কুমড়া  TEXT,"                                                                                                                               //27
+                + "লাউ TEXT,"                                                                                                                               //28
+                + "শসা  TEXT,"                                                                                                                                     //29
+                + "ফুলকপি  TEXT,"                                                                                                                               //30
+                + "বাঁধাকপি  TEXT,"                                                                                                                             //31
+                + "পটল TEXT,"                                                                                                                                   //32
+                + "করলা TEXT,"                                                                                                                                  //33
+                + "নারকেল TEXT,"                                                                                                                                //34
 
 
                 /////////
-                + "ডিম TEXT,"
-                + "রুই_মাছ TEXT,"
-                + "ইলিশ_মাছ TEXT,"
-                + "চিংড়ি TEXT,"
+                + "ডিম TEXT,"                                                                                                                                   //35
+                + "রুই_মাছ TEXT,"                                                                                                                            //36
+                + "ইলিশ_মাছ TEXT,"                                                                                                                      //37
+                + "চিংড়ি TEXT,"                                                                                                                            //38
             ////////
 
 
-                +"ধনেপাতা TEXT,"
-                + "তেজপাতা TEXT,"
-                + "এলাচ TEXT,"
-                + "লবঙ্গ TEXT,"
-                + "লঙ্কা TEXT,"
-                + "হলুদ TEXT,"
-                + "গোটা_জিরা TEXT,"
-                + "ধনে_গুঁড়া TEXT,"
-                + "জিরা_গুঁড়া TEXT,"
-                + "লাল_মরিচ_গুঁড়া TEXT,"
-                + "লাল_মরিচ TEXT,"
-                + "কালো_জিরে  TEXT,"
-                + "৫_ফোড়ন TEXT,"
-                + "শর্ষে  TEXT,"
-                + "পোস্ত TEXT,"
-                + "মেথি  TEXT,"
-                + "মৌব়ি  TEXT,"
-                + "গোলমরিচ TEXT,"
-                + "কাসুন্দি TEXT,"
+                +"ধনেপাতা TEXT,"                                                                                                                            //39
+                + "তেজপাতা TEXT,"                                                                                                                           //40
+                + "এলাচ TEXT,"                                                                                                                          //41
+                + "লবঙ্গ TEXT,"                                                                                                                         //42
+                + "লঙ্কা TEXT,"                                                                                                                         //43
+                + "হলুদ TEXT,"                                                                                                                          //44
+                + "গোটা_জিরা TEXT,"                                                                                                                         //45
+                + "ধনে_গুঁড়া TEXT,"                                                                                                                            //46
+                + "জিরা_গুঁড়া TEXT,"                                                                                                                           //47
+                + "লাল_মরিচ_গুঁড়া TEXT,"                                                                                                                           //48
+                + "লাল_মরিচ TEXT,"                                                                                                                          //49
+                + "কালো_জিরে  TEXT,"                                                                                                                            //50
+                + "৫_ফোড়ন TEXT,"                                                                                                                           //51
+                + "শর্ষে  TEXT,"                                                                                                                            //52
+                + "পোস্ত TEXT,"                                                                                                                         //53
+                + "মেথি  TEXT,"                                                                                                                         //54
+                + "মৌব়ি  TEXT,"                                                                                                                            //55
+                + "গোলমরিচ TEXT,"                                                                                                                           //56
+                + "কাসুন্দি TEXT,"                                                                                                                          //57
 
 
 
 
 
                 /////////////////////
-                +"জলখাবার TEXT,"
-                +"নিরামিষ TEXT,"
-                +"উৎসব TEXT," //bideshi
-                +"আমিষ TEXT,"
-                +"মিষ্টান্ TEXT,"
-                +"অন্যান্য TEXT,"
-                +"পানীয় TEXT,"
+                +"জলখাবার TEXT,"                                                                                                                            //58
+                +"নিরামিষ TEXT,"                                                                                                                            //59
+                +"উৎসব TEXT," //bideshi                                                                                                                         //60
+                +"আমিষ TEXT,"                                                                                                                           //61
+                +"মিষ্টান্ TEXT,"                                                                                                                           //62
+                +"অন্যান্য TEXT,"                                                                                                                           //63
+                +"পানীয় TEXT,"                                                                                                                         //64
+                +"udpateStatus TEXT,"                                                                                                                           //65
                 /////////////////////
-                +"মসুর_ডাল TEXT,"
-                + "মুগ_ডাল TEXT"
+                +"মসুর_ডাল TEXT,"                                                                                                                           //66
+                + "মুগ_ডাল TEXT"                                                                                                                            //67
 
 
                 + ");");
@@ -174,11 +185,148 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
 
 
     }
+    /**
+     * Get list of Users from SQLite DB as Array List
+     * @return
+     */
+    public ArrayList<HashMap<String, String>> getAllUsers() {
+
+        ArrayList<HashMap<String, String>> wordList;
+        wordList = new ArrayList<HashMap<String, String>>();
+        String selectQuery = "SELECT  * FROM RECIPE";
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(selectQuery, null);
+        String[] ingtext=getColNames();
+
+        System.out.println(j);
+
+        cursor.moveToFirst();
+        while (cursor.isAfterLast() == false) {
 
 
 
+                 HashMap<String, String> map = new HashMap<String, String>();
 
+                for (int i = 0; i <= j-1; i++) {
+
+                  map.put(ingtext[i], cursor.getString(i));
+
+                }
+
+                wordList.add(map);
+                 cursor.moveToNext();
+
+
+
+        }
+        database.close();
+
+        return wordList;
+    }
+
+    /**
+     * Compose JSON out of SQLite records
+     * @return
+     */
+    public String composeJSONfromSQLite(){
+
+
+
+        ArrayList<HashMap<String, String>> wordList;
+        wordList = new ArrayList<HashMap<String, String>>();
+        String selectQuery = "SELECT  * FROM  RECIPE where udpateStatus is null";
+        SQLiteDatabase database = this.getWritableDatabase();
+        String[] ingtext=getColNames();
+        System.out.println(j);
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        cursor.moveToFirst();
+        while (cursor.isAfterLast() == false) {
+                HashMap<String, String> map = new HashMap<String, String>();
+
+
+
+                for (int i = 0; i <= j-1; i++) {
+
+                    map.put(ingtext[i], cursor.getString(i));
+                    //System.out.println((ingtext[i] +  cursor.getString(i)));
+                }
+
+
+                wordList.add(map);
+            cursor.moveToNext();
+
+        }
+
+        database.close();
+        Gson gson = new GsonBuilder().create();
+        //Use GSON to serialize Array List to JSON
+        return gson.toJson(wordList);
+    }
+
+    /**
+     * Get Sync status of SQLite
+     * @return
+     */
+    public String getSyncStatus(){
+        String msg = null;
+        if(this.dbSyncCount() == 0){
+            msg = "SQLite and Remote MySQL DBs are in Sync!";
+        }else{
+            msg = "DB Sync neededn";
+        }
+        return msg;
+    }
+
+    /**
+     * Get SQLite records that are yet to be Synced
+     * @return
+     */
+    public int dbSyncCount(){
+        int count = 0;
+        String selectQuery = "SELECT  * FROM RECIPE where udpateStatus is null";
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(selectQuery, null);
+        count = cursor.getCount();
+        database.close();
+
+        return count;
+    }
+
+    /**
+     * Update Sync status against each User ID
+     * @param id
+     * @param status
+     */
+    public void updateSyncStatus(String id, String status){
+        SQLiteDatabase database = this.getWritableDatabase();
+        String updateQuery = "Update RECIPE  set udpateStatus = '"+ status +"' where _id ="+"'"+ id +"'";
+        Log.d("query",updateQuery);
+        database.execSQL(updateQuery);
+        database.close();
+    }
+
+    public String[] getColNames(){
+        String[] ingtext=new String[1000];
+        j=0;
+        String columnName="PRAGMA table_info(RECIPE)";
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor_colname=database.rawQuery(columnName,null);
+        cursor_colname.moveToFirst();
+        while (cursor_colname.isAfterLast() == false) {
+            ingtext[j] = cursor_colname.getString(1);
+            j++;
+            cursor_colname.moveToNext();
+        }
+        cursor_colname.close();
+        return ingtext;
+    }
 }
+
+
+
+
 
 
 
