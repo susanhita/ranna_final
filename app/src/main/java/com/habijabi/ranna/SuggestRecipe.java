@@ -61,14 +61,15 @@ public class SuggestRecipe extends Activity {
             LinearLayout layout = (LinearLayout) findViewById(R.id.suggest_recipe);
 
             for (int k = 5; k < j; k++) {
-                if (!(k>57 && k<65)) {
 
-                    CheckBox chkTeamName = new CheckBox(SuggestRecipe.this);
-                    chkTeamName.setId(k);
-                    chkTeamName.setText(ingtext[k].replaceAll("_", " "));
-                    layout.addView(chkTeamName);
+                if ((!ingtext[k].contains("উৎসব")&&!ingtext[k].contains("নিরামিষ")&&!ingtext[k].contains("আমিষ")&&!ingtext[k].contains("পানীয় "))&&!ingtext[k].contains("পানীয")&&!ingtext[k].contains("জলখাবার")&&!ingtext[k].contains("udpateStatus")) {
+                    if ((!ingtext[k].contains("অন্যান্য") && !ingtext[k].contains("মিষ্টান্"))) {
+                        CheckBox chkTeamName = new CheckBox(SuggestRecipe.this);
+                        chkTeamName.setId(k);
+                        chkTeamName.setText(ingtext[k].replaceAll("_", " "));
+                        layout.addView(chkTeamName);
+                    }
                 }
-
             }
         }
     }
@@ -83,7 +84,9 @@ public class SuggestRecipe extends Activity {
 
         String Tot_suggest="SELECT _id,NAME FROM RECIPE WHERE ";
         for (int k = 5; k <  j; k++) {
-            if (!(k > 57 && k < 65)) {
+
+            if ((!ingtext[k].contains("উৎসব")&&!ingtext[k].contains("নিরামিষ")&&!ingtext[k].contains("আমিষ")&&!ingtext[k].contains("পানীয় "))&&!ingtext[k].contains("পানীয")&&!ingtext[k].contains("জলখাবার")&&!ingtext[k].contains("udpateStatus")){
+                if ((!ingtext[k].contains("অন্যান্য")&&!ingtext[k].contains("মিষ্টান্"))){
 
                 CheckBox chkTeamName = (CheckBox) findViewById(k);
                 if (!chkTeamName.isChecked()) {
@@ -94,7 +97,7 @@ public class SuggestRecipe extends Activity {
                     flag = 1;
                 }
             }
-        }
+        }}
         Tot_suggest=Tot_suggest.concat(new_string);
         Tot_suggest = Tot_suggest.concat(";");
         if (flag==1) {

@@ -103,10 +103,16 @@ public class SelIngredients extends Activity  {
             Integer[] hh=new Integer[j-5];
             String[] ingtext1=new String[j-5-7];
             for (int i=0,k = 5; k < j; k++) {
-                if (!(k>57 && k<65)){
-                ingtext1[i]=ingtext[k].replaceAll("_"," ");
-                i++;}
-            }
+
+               if ((!ingtext[k].contains("উৎসব")&&!ingtext[k].contains("নিরামিষ")&&!ingtext[k].contains("আমিষ")&&!ingtext[k].contains("পানীয় "))&&!ingtext[k].contains("পানীয")&&!ingtext[k].contains("জলখাবার") &&!ingtext[k].contains("udpateStatus")){
+                   if ((!ingtext[k].contains("অন্যান্য")&&!ingtext[k].contains("মিষ্টান্"))){
+            //    if (!ingtext[k].contains("জলখাবার")||!ingtext[k].contains("উৎসব"&&){
+
+                    ingtext1[i]=ingtext[k].replaceAll("_"," ");
+
+                i++;
+                   }
+            }}
 
             ListView listView=(ListView)findViewById(R.id.listsel);
 

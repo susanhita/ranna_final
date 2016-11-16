@@ -44,14 +44,14 @@ public class PrintSuggestedRecipe extends ListActivity {
 
                     cursor.moveToFirst();
                     listAdapter = new SimpleCursorAdapter(PrintSuggestedRecipe.this, android.R.layout.simple_list_item_1, cursor, new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
-                    setListAdapter(listAdapter);
+
                     return true;
                 } catch (SQLiteException e) {
                     return false;
                 }
             }
             protected void onPostExecute(Boolean success) {
-
+                setListAdapter(listAdapter);
             }
         }
 
