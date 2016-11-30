@@ -258,7 +258,7 @@ System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXX"+columns+"vvvvvvvvvvv"+values);
 
             try {
                 SQLiteDatabase db = starbuzzdb1.getWritableDatabase();
-                String insert = "INSERT INTO RECIPE(NAME,DESCRIPTION,IMAGE_RESOURCE_ID" + columns + ")VALUES('" + recipe_name + "','" + description + "','" + uriSavedImage1 + "'" + values + ");";
+                String insert = "INSERT INTO RECIPE(NAME,DESCRIPTION,IMAGE_RESOURCE_ID,updatestatus" + columns + ")VALUES('" + recipe_name + "','" + description + "','" + uriSavedImage1 +"','no'" + values + ");";
                 db.execSQL(insert);
                 db.close();
                 return true;
