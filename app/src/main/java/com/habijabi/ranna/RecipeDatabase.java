@@ -117,7 +117,7 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 +"মিষ্টান্ TEXT,"                                                                                                                           //62
                 +"অন্যান্য TEXT,"                                                                                                                           //63
                 +"পানীয় TEXT,"                                                                                                                         //64
-                +"udpateStatus TEXT,"                                                                                                                           //65
+                +"updateStatus TEXT,"                                                                                                                           //65
                 /////////////////////
                 +"মসুর_ডাল TEXT,"                                                                                                                           //66
                 + "মুগ_ডাল TEXT"                                                                                                                            //67
@@ -197,9 +197,6 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
         Cursor cursor = database.rawQuery(selectQuery, null);
         String[] ingtext=getColNames();
-
-        System.out.println(j);
-
         cursor.moveToFirst();
         while (cursor.isAfterLast() == false) {
 
@@ -207,7 +204,7 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
 
                  HashMap<String, String> map = new HashMap<String, String>();
 
-                for (int i = 0; i <= j-1; i++) {
+                for (int i = 1; i <= j-1; i++) {
 
                   map.put(ingtext[i], cursor.getString(i));
 
@@ -215,55 +212,77 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
 
                 wordList.add(map);
                  cursor.moveToNext();
-
-
-
         }
         database.close();
+        System.out.println("RecipeDatabase: getAllUsers");
 
         return wordList;
     }
+
+
+    /**
+     * Get SQLite records that are yet to be Synced
+     * @return
+     */
+    public int dbSyncCount(){
+
+        int count = 0;
+
+        String selectQuery = "SELECT  * FROM RECIPE where  updateStatus is null or updatestatus='no'";
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        count = cursor.getCount();
+       // System.out.println("unooooooooooooooooooooooooooUPDATE SYNC STATUSoooooooooooooooooooooooooo"+count);
+        System.out.println("RecipeDatabase: dbSyncCount"+count);
+
+        database.close();
+
+        return count;
+    }
+
 
     /**
      * Compose JSON out of SQLite records
      * @return
      */
     public String composeJSONfromSQLite(){
-
-
-
         ArrayList<HashMap<String, String>> wordList;
         wordList = new ArrayList<HashMap<String, String>>();
-        String selectQuery = "SELECT  * FROM  RECIPE where udpateStatus is null";
+        String selectQuery = "SELECT  * FROM  RECIPE where  updateStatus is null or updatestatus ='no'";
         SQLiteDatabase database = this.getWritableDatabase();
         String[] ingtext=getColNames();
-        System.out.println(j);
-
         Cursor cursor = database.rawQuery(selectQuery, null);
-
         cursor.moveToFirst();
         while (cursor.isAfterLast() == false) {
                 HashMap<String, String> map = new HashMap<String, String>();
-
-
-
-                for (int i = 0; i <= j-1; i++) {
-
+                for (int i = 1; i <= j-1; i++) {
                     map.put(ingtext[i], cursor.getString(i));
-                    //System.out.println((ingtext[i] +  cursor.getString(i)));
                 }
-
-
                 wordList.add(map);
-            cursor.moveToNext();
-
+                cursor.moveToNext();
         }
 
         database.close();
         Gson gson = new GsonBuilder().create();
-        //Use GSON to serialize Array List to JSON
         return gson.toJson(wordList);
     }
+
+    /**
+     * Update Sync status against each User ID
+     * @param name
+     * @param status
+     */
+    public void updateSyncStatus(String name, String status){
+         System.out.println("RecipeDatabase:UPDATE SYNC STATUS");
+
+        SQLiteDatabase database = this.getWritableDatabase();
+        String updateQuery = "Update RECIPE  set updateStatus = '"+ status +"' where name ="+"'"+ name +"'";
+        System.out.println(updateQuery);
+        database.execSQL(updateQuery);
+        database.close();
+    }
+
 
     /**
      * Get Sync status of SQLite
@@ -279,33 +298,9 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         return msg;
     }
 
-    /**
-     * Get SQLite records that are yet to be Synced
-     * @return
-     */
-    public int dbSyncCount(){
-        int count = 0;
-        String selectQuery = "SELECT  * FROM RECIPE where udpateStatus is null";
-        SQLiteDatabase database = this.getWritableDatabase();
-        Cursor cursor = database.rawQuery(selectQuery, null);
-        count = cursor.getCount();
-        database.close();
 
-        return count;
-    }
 
-    /**
-     * Update Sync status against each User ID
-     * @param id
-     * @param status
-     */
-    public void updateSyncStatus(String id, String status){
-        SQLiteDatabase database = this.getWritableDatabase();
-        String updateQuery = "Update RECIPE  set udpateStatus = '"+ status +"' where _id ="+"'"+ id +"'";
-        Log.d("query",updateQuery);
-        database.execSQL(updateQuery);
-        database.close();
-    }
+
 
     public String[] getColNames(){
         String[] ingtext=new String[1000];

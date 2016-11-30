@@ -30,8 +30,16 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.google.firebase:firebase-core:9.6.1'
-    compile 'com.google.http-client:google-http-client-gson:1.20.0'
+    compile ('com.google.http-client:google-http-client-gson:1.20.0')
+            {
+                exclude module: 'httpclient' //by artifact name
+                exclude group: 'org.apache.httpcomponents' //by group
+                exclude group: 'org.apache.httpcomponents', module: 'httpclient' //by both na
+            }
     compile 'cz.msebera.android:httpclient:4.3.6'
+    dependencies {
+        compile 'com.loopj.android:android-async-http:1.4.9'
+    }
     // https://mvnrepository.com/artifact/cz.msebera.android/httpclient
   ///  compile group: 'cz.msebera.android', name: 'httpclient', version: '4.3.6'
 
