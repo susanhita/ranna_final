@@ -34,7 +34,7 @@
     <string name="save">রেসিপেটি সংরক্ষণ করুন</string>
     <string name="create_rec">নতুন রেসিপি লিখুন </string>
     <string name="view_rec">আপনার রেসিপি খাতা  দেখুন</string>
-    <string name="random">কি বানাই, কি বানাই?</string>
+    <string name="recipe_cloud">রেসিপি ক্লাউড</string>
     <string name="delete_rec">কোনো রেসিপি বাদ দিতে চান?</string>
     <string name="suggest">আজ কি বানাবেন ?</string>
     <string name="clear">সব পরিষ্কার করে দাও </string>

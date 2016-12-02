@@ -200,6 +200,7 @@ private class UpdateRecipeClass extends AsyncTask<Integer,Void,Boolean> {
 //            description.setText(Uri.parse(resourceid).toString());
             if (resourceid!="") {
                 ImageView photo = (ImageView) findViewById(R.id.photo);
+                photo.setImageURI(null);
                 photo.setImageURI(Uri.parse(resourceid));
                 photo.setContentDescription(nametext);
             }

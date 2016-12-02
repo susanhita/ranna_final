@@ -1,5 +1,6 @@
 package com.habijabi.ranna;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +17,9 @@ public class RecipeCategory extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_category);
+        ActionBar actionBar=getActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+
         Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
 
         Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
@@ -30,6 +34,8 @@ public class RecipeCategory extends Activity {
         animation6.setStartOffset(750);
         Animation animation7 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
         animation7.setStartOffset(900);
+        Animation animation8 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+        animation8.setStartOffset(1050);
 
         Button veg=(Button)findViewById(R.id.veg);
         veg.startAnimation(animation3);
@@ -40,11 +46,14 @@ public class RecipeCategory extends Activity {
         Button snacks=(Button)findViewById(R.id.snacks);
         snacks.startAnimation(animation1);
 
-            Button all=(Button)findViewById(R.id.all);
+        Button all=(Button)findViewById(R.id.all);
         all.startAnimation(animation7);
 
+        Button any=(Button)findViewById(R.id.any);
+        any.startAnimation(animation8);
 
-       Button desserts=(Button)findViewById(R.id.desserts);
+
+        Button desserts=(Button)findViewById(R.id.desserts);
         desserts.startAnimation(animation6);
 
         Button beverages=(Button)findViewById(R.id.beverages);
@@ -95,6 +104,12 @@ public class RecipeCategory extends Activity {
         Intent intent=new Intent(this,ViewRecipe.class);
         category="অন্যান্য";
         intent.putExtra("category", category);
+        startActivity(intent);
+
+    }
+
+    public void any(View view){
+        Intent intent=new Intent(this,RandomReceipe.class);
         startActivity(intent);
 
     }

@@ -62,7 +62,7 @@
         android:layout_gravity="center_horizontal"
         android:id="@+id/random"
         android:layout_marginTop="20dp"
-        android:text="@string/random"
+        android:text="@string/recipe_cloud"
         android:textSize="10pt"
 
         android:textColor="#280d0d"
