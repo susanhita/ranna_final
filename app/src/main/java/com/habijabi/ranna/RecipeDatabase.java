@@ -117,10 +117,11 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 +"মিষ্টান্ TEXT,"                                                                                                                           //62
                 +"অন্যান্য TEXT,"                                                                                                                           //63
                 +"পানীয় TEXT,"                                                                                                                         //64
-                +"updateStatus TEXT,"                                                                                                                           //65
+                +"updateStatus TEXT," //65
+                +"syncsts TEXT,"//66
                 /////////////////////
-                +"মসুর_ডাল TEXT,"                                                                                                                           //66
-                + "মুগ_ডাল TEXT"                                                                                                                            //67
+                +"মসুর_ডাল TEXT,"                                                                                                                           //67
+                + "মুগ_ডাল TEXT"                                                                                                                            //68
 
 
                 + ");");
@@ -180,6 +181,15 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
             if ( oldVersion==7) {
                 db.execSQL("ALTER TABLE RECIPE ADD পানীয় TEXT");
             }
+
+
+            if ( oldVersion<9) {
+                db.execSQL("ALTER TABLE RECIPE ADD syncsts TEXT");
+                db.execSQL("ALTER TABLE RECIPE ADD updateStatus TEXT");
+
+            }
+
+
             System.out.println("aleady exisitng db");
         }
 
@@ -317,6 +327,32 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         cursor_colname.close();
         return ingtext;
     }
+
+    /**
+     * Inserts User into SQLite DB queryValuesxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+     * @param  */
+
+    public void insertUser(HashMap<String, String> queryValues) {
+
+
+
+
+
+            SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        for ( String key : queryValues.keySet() ) {
+            System.out.println( key );
+
+            values.put(key,queryValues.get(key));
+        }
+
+
+
+       database.insert("RECIPE", null, values);
+        database.close();
+
+    }
+
 }
 
 

@@ -12,6 +12,7 @@
 
     <Button
         android:text="import recipe"
+        android:onClick="import_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -22,7 +23,7 @@
         android:id="@+id/button14" />
 
     <Button
-        android:text="sync recipe"
+        android:text="export recipe"
         android:onClick="sync_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
