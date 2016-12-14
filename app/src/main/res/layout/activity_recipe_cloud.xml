@@ -11,7 +11,7 @@
     tools:context="com.habijabi.ranna.RecipeCloud">
 
     <Button
-        android:text="import recipe"
+        android:text="সার্ভার থেকে রেসিপি পুনরুদ্ধার করুন"
         android:onClick="import_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         android:id="@+id/button14" />
 
     <Button
-        android:text="export recipe"
+        android:text="রেসিপি সার্ভারে গচ্ছিত রাখুন"
         android:onClick="sync_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
