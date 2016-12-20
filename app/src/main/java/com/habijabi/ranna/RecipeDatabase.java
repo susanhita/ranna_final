@@ -602,73 +602,119 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         db.insert("RECIPE", null, drinkValues15);
         //TODO
 
+        /********/
+
+        Uri path16 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
+        String recipe_description16 = "\nউপকরণ\n৩ আলু \n" +
+                "১ বাঁধাকপি কুচি করে কাটা\n" +
+                "তেজপাতা, ৫ ফোড়ন\n" +
+                "নুন ১ চা \n" +
+                "হলুদ ১ চা \n" +
+                "মটরশুঁটি ১ কাপ \n" +
+                "আদাবাটা ১ চা \n" +
+                "রসুনবাটা ১/২ চা \n" +
+                " আলু ভেজে তুলে রাখুন।\n" +
+                "অল্প তেলে তেজপাতা,৫ ফোড়ন  আদা,রসুন,লঙ্কা  বাটা ভাজুন।\n" +
+                "সম্পূর্ণ ভাজা হয়ে গেলে বাঁধাকপি কুচি দিয়ে দিন।\n" +
+                "এর পরে আলু,মটর,জীরে গুঁড়ো, ধোনে , লঙ্কাগুঁড়ো, নুন-হলুদ দিয়ে দিন।\n" +
+                "সবকিছু কষতে থাকুন যতক্ষণ না জল বেরিয়ে অর্ধেক হয়ে যাচ্ছে।\n" +
+                "আলু সম্পূর্ণ সেদ্ধ হলে নামিয়ে নিন।";
+
+        ContentValues drinkValues16=new ContentValues();
+        drinkValues16.put("NAME", "বাঁধাকপির ঘন্ট");
+        drinkValues16.put("DESCRIPTION", recipe_description16);
+        drinkValues16.put("IMAGE_RESOURCE_ID", path16.toString());
+        drinkValues16.put("রসুন","YES");
+        drinkValues16.put("আলু", "YES");
+        drinkValues16.put("আদা","YES");
+        drinkValues16.put("লবণ","YES");
+        drinkValues16.put("নিরামিষ","YES");
+        drinkValues16.put("হলুদ","YES");
+        drinkValues16.put("তেজপাতা", "YES");
+        drinkValues16.put("জিরা_গুঁড়া","YES");
+        drinkValues16.put("লাল_মরিচ_গুঁড়া","YES");
+        drinkValues16.put("৫_ফোড়ন", "YES");
+        drinkValues16.put("ধনে_গুঁড়া","YES");
+
+
+
+        db.insert("RECIPE", null, drinkValues16);
+
+        /***************/
+
+        Uri path17 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
+        String recipe_description17 = "\nউপকরণ\n" +
+                " 2 ডিম  \n 1 কাপ ময়দা \n 1/2 কাপ চিনি \n 1/2 কাপ মাখন \n 1/2 চামচ বেকিং পাউডার\n 1/2 কাপ দুধ\n\n" +
+                "\n" +
+                "\n" +
+                "মুরগির মাংস নুন-হলুদ মাখিয়ে (১/২  থেকে ২ ঘন্টা) মেরিনেট করুন।\n" +
+                "আলু ভেজে আলাদা রাখুন।\n" +
+                "পেয়াঁজ ভেজে আলাদা রাখুন\n" +
+                "প্রেসার কুকারে/কড়াইয়ে অল্প তেলে টমেটো ভাজুন যতক্ষণ না সম্পূর্ণ ভাজা হচ্ছে (মোটামুটি ৫ মিন)।\n" +
+                "এবার এতে আদাবাটা,রসুনবাটা,লঙ্কা বাটা  ও একটি তেজপাতা দিয়ে দিন।\n" +
+                "এর পর চিকেন মসলা (না থাকলে জীরে গুঁড়ো ,ধোনে গুঁড়ো,নুন-হলুদ, লঙ্কাগুঁড়ো ও গরম মসলা দিতে পারেন) দিয়ে দিন।\n" +
+                "মসলা ভাজা হয়ে গেলে আলু দিয়ে কিছুক্ষন কোষে , মুরগি পিসগুলি  দিয়ে দিন।\n" +
+                "মুরগি থেকে জল বেরুবে সেই জল শুকিয়ে গেলে, ২ কাপ জল দিয়ে সেদ্ধ করুন বা প্রেসার কুকারে ২ টি সিটি দিন।";
+
+        ContentValues drinkValues17=new ContentValues();
+        drinkValues17.put("NAME", "চিকেন কশা ");
+        drinkValues17.put("DESCRIPTION", recipe_description17);
+        drinkValues17.put("IMAGE_RESOURCE_ID", path17.toString());
+        drinkValues17.put("টমেটো", "YES");
+        drinkValues17.put("আলু", "YES");
+        drinkValues17.put("রসুন","YES");
+        drinkValues17.put("লবণ","YES");
+        drinkValues17.put("আদা","YES");
+        drinkValues17.put("হলুদ","YES");
+        drinkValues17.put("ধনে_গুঁড়া","YES");
+        drinkValues17.put("লাল_মরিচ_গুঁড়া","YES");
+        drinkValues17.put("তেজপাতা", "YES");
+        drinkValues17.put("জিরা_গুঁড়া","YES");
+        drinkValues17.put("আমিষ","YES");
+        drinkValues17.put("পেঁয়াজ", "YES");
+        drinkValues17.put("লঙ্কা", "YES");
+
+
+
+
+
+
+
+        db.insert("RECIPE", null, drinkValues17);
+        /***************/
+
+        Uri path18 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
+        String recipe_description18 = "\nউপকরণ\n" +
+                " মাছগুলি ধুয়ে নুন হলুদ দিয়ে ভেজে নিন।\n" +
+                "আলু  নুন হলুদ দিয়ে  ভেজে আলাদা রাখুন।\n" +
+                "পেয়াঁজ লাল হওয়া অব্দি ভাজুন। তারপর ওতে চিনি  চামচ দিয়ে দিন । চিনি গলে  লেগে গেলে নামিয়ে নিন । আলাদা রাখুন।\n" +
+                " প্রেসার কুকারে/কড়াইয়ে অল্প তেলে টমেটো ভাজুন যতক্ষণ না সম্পূর্ণ ভাজা হচ্ছে (মোটামুটি ৫ মিন)।\n" +
+                "এবার এতে আদাবাটা,লঙ্কা বাটা  ও একটি তেজপাতা দিয়ে দিন।\n" +
+                "তারপর দিন নুন-হলুদ, জীরে গুঁড়ো ও একটু গরম মসলা আর আলু দিয়ে কষতে থাকুন ।\n" +
+                "মসলা ভাজা হয়ে গেলে মাছ দিয়ে দিন। ১/২ চামচ চিনি দেবেন। জল দিয়ে ফুটিয়ে নিন।\n" +
+                "আলু সেদ্ধ হয়ে এলে নামিয়ে নিন।\n";
+
+        ContentValues drinkValues18=new ContentValues();
+        drinkValues18.put("NAME", "রুই মাছের কালিয়া");
+        drinkValues18.put("DESCRIPTION", recipe_description18);
+        drinkValues18.put("IMAGE_RESOURCE_ID", path18.toString());
+        drinkValues18.put("রুই_মাছ ", "YES");
+        drinkValues18.put("আলু", "YES");
+        drinkValues18.put("পেঁয়াজ", "YES");
+        drinkValues18.put("লবণ","YES");
+        drinkValues18.put("আমিষ","YES");
+        drinkValues18.put("হলুদ","YES");
+        drinkValues18.put("জিরা_গুঁড়া","YES");
+        drinkValues18.put("তেজপাতা", "YES");
+        drinkValues18.put("আদা","YES");
+        drinkValues18.put("টমেটো", "YES");
+        drinkValues18.put("চিনি", "YES");
+        drinkValues18.put("লঙ্কা", "YES");
+
+
+
+        db.insert("RECIPE", null, drinkValues18);
         /***************
-
-        Uri path9 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
-        String recipe_description9 = "\nউপকরণ\n" +
-                " 2 ডিম  \n 1 কাপ ময়দা \n 1/2 কাপ চিনি \n 1/2 কাপ মাখন \n 1/2 চামচ বেকিং পাউডার\n 1/2 কাপ দুধ\n\n" +
-                "\n" +
-                "\n" +
-                "আলু, ফুলকপি এক সাইজ এ কেটে রাখুন ।\n" +
-                "এবার আলু, ফুলকপি, সর্ষে বাটা, লঙ্কা কুচি, নুন -হলুদ দিয়ে প্রেসার কুকারে ২ টি সিটি দিন।\n" +
-                "ব্যাস";
-
-        ContentValues drinkValues9=new ContentValues();
-        drinkValues9.put("NAME", "বেগুন ভাজা  ");
-        drinkValues9.put("DESCRIPTION", recipe_description8);
-        drinkValues9.put("IMAGE_RESOURCE_ID", path8.toString());
-        drinkValues9.put("শর্ষে", "YES");
-        drinkValues9.put("আলু", "YES");
-        drinkValues9.put("ফুলকপি", "YES");
-        drinkValues9.put("লবণ","YES");
-        drinkValues9.put("নিরামিষ","YES");
-        drinkValues9.put("হলুদ","YES");
-
-        db.insert("RECIPE", null, drinkValues9);/ ***************
-
-        Uri path9 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
-        String recipe_description9 = "\nউপকরণ\n" +
-                " 2 ডিম  \n 1 কাপ ময়দা \n 1/2 কাপ চিনি \n 1/2 কাপ মাখন \n 1/2 চামচ বেকিং পাউডার\n 1/2 কাপ দুধ\n\n" +
-                "\n" +
-                "\n" +
-                "আলু, ফুলকপি এক সাইজ এ কেটে রাখুন ।\n" +
-                "এবার আলু, ফুলকপি, সর্ষে বাটা, লঙ্কা কুচি, নুন -হলুদ দিয়ে প্রেসার কুকারে ২ টি সিটি দিন।\n" +
-                "ব্যাস";
-
-        ContentValues drinkValues9=new ContentValues();
-        drinkValues9.put("NAME", "বেগুন ভাজা  ");
-        drinkValues9.put("DESCRIPTION", recipe_description8);
-        drinkValues9.put("IMAGE_RESOURCE_ID", path8.toString());
-        drinkValues9.put("শর্ষে", "YES");
-        drinkValues9.put("আলু", "YES");
-        drinkValues9.put("ফুলকপি", "YES");
-        drinkValues9.put("লবণ","YES");
-        drinkValues9.put("নিরামিষ","YES");
-        drinkValues9.put("হলুদ","YES");
-
-        db.insert("RECIPE", null, drinkValues9);/ ***************
-
-        Uri path9 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
-        String recipe_description9 = "\nউপকরণ\n" +
-                " 2 ডিম  \n 1 কাপ ময়দা \n 1/2 কাপ চিনি \n 1/2 কাপ মাখন \n 1/2 চামচ বেকিং পাউডার\n 1/2 কাপ দুধ\n\n" +
-                "\n" +
-                "\n" +
-                "আলু, ফুলকপি এক সাইজ এ কেটে রাখুন ।\n" +
-                "এবার আলু, ফুলকপি, সর্ষে বাটা, লঙ্কা কুচি, নুন -হলুদ দিয়ে প্রেসার কুকারে ২ টি সিটি দিন।\n" +
-                "ব্যাস";
-
-        ContentValues drinkValues9=new ContentValues();
-        drinkValues9.put("NAME", "বেগুন ভাজা  ");
-        drinkValues9.put("DESCRIPTION", recipe_description8);
-        drinkValues9.put("IMAGE_RESOURCE_ID", path8.toString());
-        drinkValues9.put("শর্ষে", "YES");
-        drinkValues9.put("আলু", "YES");
-        drinkValues9.put("ফুলকপি", "YES");
-        drinkValues9.put("লবণ","YES");
-        drinkValues9.put("নিরামিষ","YES");
-        drinkValues9.put("হলুদ","YES");
-
-        db.insert("RECIPE", null, drinkValues9);/ ***************
 
         Uri path9 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
         String recipe_description9 = "\nউপকরণ\n" +
