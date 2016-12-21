@@ -771,6 +771,30 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         drinkValues20.put("আখের_গুড় ","YES");
 
         db.insert("RECIPE", null, drinkValues20);
+        /***************/
+
+        Uri path21 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
+        String recipe_description21 = "\nউপকরণ\nকাঁচা আম\n" +
+                "৪ চামচ চিনি\n" +
+                "বিট নুন\n" +
+                "জীরে গুঁড়ো " +
+                "কাঁচা আমে কয়েকটা ফুটো করুন\n" +
+                "এবার আগুনে ঝলসে নিন(১০ মিন)\nজীরে ভেজে গুড়িয়ে নিন \n" +
+                "আমটি ঠান্ডা হলে, পড়া খোসাটি ছাড়িয়ে নিন।\n" +
+                "এবার আমটি চটকে আঁটি টি বাদ দিন।\n" +
+                "ওতে বিট নুন, জীরে ভাজা গুঁড়ো দিন। চিনি দিন পরিমান মতো( বেশি টক হলে বেশি চিনি বাড়বে)\n" +
+                " ঘটনি দিয়ে কিংবা  মিক্সিতে  জল দিয়ে মিশ্রণটি মিশিয়ে মোলায়েম করে নিন।\n" +
+                "পরিবেশন করুন(বরফ দিতে পারেন)";
+
+        ContentValues drinkValues21=new ContentValues();
+        drinkValues21.put("NAME", "আম পোড়া শরবত");
+        drinkValues21.put("DESCRIPTION", recipe_description21);
+        drinkValues21.put("IMAGE_RESOURCE_ID", path21.toString());
+        drinkValues21.put("চিনি","YES");
+        drinkValues21.put("পানীয় ","YES");
+        drinkValues21.put("গোটা_জিরা ","YES");
+
+        db.insert("RECIPE", null, drinkValues20);
     }
 
     @Override
