@@ -741,29 +741,36 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         drinkValues19.put("হলুদ","YES");
 
         db.insert("RECIPE", null, drinkValues19);
-        /***************
+        /***************/
 
-        Uri path9 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
-        String recipe_description9 = "\nউপকরণ\n" +
-                " 2 ডিম  \n 1 কাপ ময়দা \n 1/2 কাপ চিনি \n 1/2 কাপ মাখন \n 1/2 চামচ বেকিং পাউডার\n 1/2 কাপ দুধ\n\n" +
+        Uri path20 = Uri.parse("android.resource://com.habijabi.ranna/" + R.drawable.pancake);
+        String recipe_description20 = "\nউপকরণ\n" +
+                " ১ টি নারকেল কোরানো\n" +
+                "১/২ কাপ গুড়\n" +
+                "২ কাপ চালের  গুঁড়ো\n" +
+                "৫০০ লি দুধ \n" +
                 "\n" +
+                "কড়াই তে  গুড় ওর সামান্য জল দিয়ে ১ মিন ফোটান ।\n" +
+                "এবার এতে নারকেলকোরা  দিয়ে দিন।\n" +
+                "নাড়তে থাকুন যতক্ষণ না মিশ্রণটি সম্পূর্ণ খয়েরি হচ্ছে ।\n" +
+                "চালের গুঁড়ো মেচে ছোট ছোট লেচি তৈরী করুন।\n" +
+                "লুচির সাইজে বেলে , এতে নারকেলের পুর দিয়ে , ধারগুলো এঁটে দিন।\n" +
                 "\n" +
-                "আলু, ফুলকপি এক সাইজ এ কেটে রাখুন ।\n" +
-                "এবার আলু, ফুলকপি, সর্ষে বাটা, লঙ্কা কুচি, নুন -হলুদ দিয়ে প্রেসার কুকারে ২ টি সিটি দিন।\n" +
-                "ব্যাস";
+                "দুধ এ ৫ চামচ চিনি দিয়ে , পীঠে গুলি দিয়ে দিন।\n" +
+                "১৫-২০ মিন কম আঁচে ফোটান ।\n" +
+                "নামিয়ে নিন ";
 
-        ContentValues drinkValues9=new ContentValues();
-        drinkValues9.put("NAME", "বেগুন ভাজা  ");
-        drinkValues9.put("DESCRIPTION", recipe_description8);
-        drinkValues9.put("IMAGE_RESOURCE_ID", path8.toString());
-        drinkValues9.put("শর্ষে", "YES");
-        drinkValues9.put("আলু", "YES");
-        drinkValues9.put("ফুলকপি", "YES");
-        drinkValues9.put("লবণ","YES");
-        drinkValues9.put("নিরামিষ","YES");
-        drinkValues9.put("হলুদ","YES");
+        ContentValues drinkValues20=new ContentValues();
+        drinkValues20.put("NAME", "দুধ পুলি পীঠে");
+        drinkValues20.put("DESCRIPTION", recipe_description20);
+        drinkValues20.put("IMAGE_RESOURCE_ID", path20.toString());
+        drinkValues20.put("দুধ", "YES");
+        drinkValues20.put("চিনি","YES");
+        drinkValues20.put("মিষ্টান্","YES");
+        drinkValues20.put("নারকেল", "YES");
+        drinkValues20.put("আখের_গুড় ","YES");
 
-        db.insert("RECIPE", null, drinkValues9);*/
+        db.insert("RECIPE", null, drinkValues20);
     }
 
     @Override
